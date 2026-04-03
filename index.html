@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APAC BLOCKCHAIN DAY | ABCD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap');
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #000; color: white; overflow-x: hidden; }
+        .glow { box-shadow: 0 0 50px rgba(79, 70, 229, 0.3); }
+    </style>
+</head>
+<body>
+    <nav class="fixed w-full p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/10">
+        <div class="text-2xl font-bold tracking-tighter">ABCD<span class="text-indigo-500">.</span></div>
+        <div class="flex gap-6 text-sm uppercase tracking-widest">
+            <a href="https://x.com/abcd_web3_" target="_blank" class="hover:text-indigo-400 transition">X (Twitter)</a>
+            <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Community</a>
+        </div>
+    </nav>
+
+    <section class="h-screen flex flex-col justify-center items-center relative">
+        <div class="absolute w-[600px] h-[600px] bg-indigo-600/10 blur-[120px] rounded-full -z-10"></div>
+        <h1 class="text-7xl md:text-9xl font-black tracking-tighter mb-4 text-center">
+            APAC <span class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">BLOCKCHAIN</span> DAY
+        </h1>
+        <p class="text-gray-400 text-xl md:text-2xl tracking-[0.2em] uppercase font-light">The Pulse of Asia's Web3 Evolution</p>
+        
+        <div class="mt-12 flex gap-4">
+            <button class="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition glow">Get Tickets</button>
+            <button class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/5 transition">Learn More</button>
+        </div>
+    </section>
+
+    <section class="py-20 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+            <div class="text-4xl font-bold text-indigo-500 mb-2">A</div>
+            <h3 class="text-xl font-bold">Adoption</h3>
+        </div>
+        <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+            <div class="text-4xl font-bold text-purple-500 mb-2">B</div>
+            <h3 class="text-xl font-bold">Building</h3>
+        </div>
+        <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+            <div class="text-4xl font-bold text-pink-500 mb-2">C</div>
+            <h3 class="text-xl font-bold">Connection</h3>
+        </div>
+        <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+            <div class="text-4xl font-bold text-blue-500 mb-2">D</div>
+            <h3 class="text-xl font-bold">Discovery</h3>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-white/10 text-gray-500 text-sm">
+        © 2026 APAC BLOCKCHAIN DAY (ABCD). All Rights Reserved.
+    </footer>
+</body>
+</html>
