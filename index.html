@@ -20,10 +20,10 @@
         }
         .hero-glow {
             position: absolute;
-            width: 80vw;
-            height: 80vw;
+            width: 120vw;
+            height: 120vw;
             background: radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, rgba(255, 153, 0, 0.05) 50%, transparent 100%);
-            filter: blur(80px);
+            filter: blur(60px);
             z-index: -1;
         }
         .glass-card {
@@ -32,26 +32,26 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
-        .glass-card:hover {
-            border-color: rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.07);
-            transform: translateY(-5px);
+        @media (min-width: 768px) {
+            .glass-card:hover {
+                border-color: rgba(255, 255, 255, 0.3);
+                background: rgba(255, 255, 255, 0.07);
+                transform: translateY(-5px);
+            }
         }
-        /* 针对 Logo 的微调 */
         .nav-logo {
-            height: 32px; /* 调整导航栏 Logo 高度 */
+            height: 24px; /* 移动端稍小 */
             width: auto;
-            transition: transform 0.3s ease;
         }
-        .nav-logo:hover {
-            transform: scale(1.05);
+        @media (min-width: 768px) {
+            .nav-logo { height: 32px; }
         }
     </style>
 </head>
 <body>
-    <div class="hero-glow top-[-20vw] left-[-10vw]"></div>
+    <div class="hero-glow top-[-40vw] left-[-20vw] md:top-[-20vw] md:left-[-10vw]"></div>
 
-    <nav class="fixed w-full p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
         <div class="flex items-center">
             <a href="/">
                 <img src="abcd_Logo_C.png" alt="abcd Logo" class="nav-logo">
@@ -63,55 +63,55 @@
             <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Linktree</a>
         </div>
 
-        <button class="px-6 py-2 border border-white/20 rounded-full text-xs font-bold hover:bg-white hover:text-black transition uppercase">
-            Connect Wallet
+        <button class="px-4 py-2 md:px-6 md:py-2 border border-white/20 rounded-full text-[10px] md:text-xs font-bold hover:bg-white hover:text-black transition uppercase">
+            Connect
         </button>
     </nav>
 
-    <section class="h-screen flex flex-col justify-center items-center px-6 text-center">
-        <h2 class="text-sm md:text-base uppercase tracking-[0.4em] mb-6 text-gray-400">The Pulse of Asia's Web3</h2>
-        <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-8 leading-none">
-            APAC<br>
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20">
+        <h2 class="text-[10px] md:text-base uppercase tracking-[0.3em] md:tracking-[0.4em] mb-4 md:mb-6 text-gray-400">The Pulse of Asia's Web3</h2>
+        <h1 class="text-5xl md:text-9xl font-black tracking-tighter mb-8 leading-[1.1] md:leading-none">
+            APAC<br class="md:hidden">
             <span class="abcd-gradient">BLOCKCHAIN</span><br>
             DAY
         </h1>
-        <div class="flex flex-col md:flex-row gap-6 mt-4">
-            <a href="https://linktr.ee/abcd.web3" class="px-10 py-4 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full md:w-auto">
+            <a href="https://linktr.ee/abcd.web3" class="px-10 py-4 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_30px_rgba(255,255,255,0.3)] text-sm md:text-base">
                 JOIN COMMUNITY
             </a>
-            <a href="https://x.com/abcd_web3_" class="px-10 py-4 glass-card rounded-full font-bold">
+            <a href="https://x.com/abcd_web3_" class="px-10 py-4 glass-card rounded-full font-bold text-sm md:text-base">
                 FOLLOW UPDATES
             </a>
         </div>
     </section>
 
-    <section class="py-24 max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="glass-card p-10 rounded-[2rem]">
-                <div class="text-5xl font-black mb-4" style="color: #00C2FF;">A</div>
-                <h3 class="text-xl font-bold mb-2">Adoption</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">推动区块链技术在亚太地区的真实应用场景落地。</p>
+    <section class="py-16 md:py-24 max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
+                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #00C2FF;">A</div>
+                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase">Adoption</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">推动区块链技术在亚太地区的真实应用场景落地。</p>
             </div>
-            <div class="glass-card p-10 rounded-[2rem]">
-                <div class="text-5xl font-black mb-4" style="color: #7000FF;">B</div>
-                <h3 class="text-xl font-bold mb-2">Building</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">赋能开发者与 Builder，构建去中心化的未来基础设施。</p>
+            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
+                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #7000FF;">B</div>
+                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase">Building</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">赋能开发者与 Builder，构建去中心化的未来基础设施。</p>
             </div>
-            <div class="glass-card p-10 rounded-[2rem]">
-                <div class="text-5xl font-black mb-4" style="color: #FF007A;">C</div>
-                <h3 class="text-xl font-bold mb-2">Connection</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">打破隔阂，连接 VC、创始人与高价值 Web3 社区。</p>
+            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
+                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF007A;">C</div>
+                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase">Connection</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">打破隔阂，连接 VC、创始人与高价值 Web3 社区。</p>
             </div>
-            <div class="glass-card p-10 rounded-[2rem]">
-                <div class="text-5xl font-black mb-4" style="color: #FF9900;">D</div>
-                <h3 class="text-xl font-bold mb-2">Discovery</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">发掘亚太市场的下一个 Alpha 机会与独角兽项目。</p>
+            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
+                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF9900;">D</div>
+                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase">Discovery</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">发掘亚太市场的下一个 Alpha 机会与独角兽项目。</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 text-center border-t border-white/5">
-        <p class="text-gray-600 text-sm tracking-widest uppercase">
+    <footer class="py-12 md:py-20 text-center border-t border-white/5 px-6">
+        <p class="text-gray-600 text-[10px] md:text-sm tracking-widest uppercase">
             © 2026 APAC BLOCKCHAIN DAY. Built for the Builders.
         </p>
     </footer>
