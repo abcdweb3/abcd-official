@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abcd: BEYOND BORDERS | APAC BLOCKCHAIN DAY</title>
+    <title>APAC BLOCKCHAIN DAY | BEYOND BORDERS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap');
@@ -19,15 +19,15 @@
             -webkit-text-fill-color: transparent;
         }
         .beyond-borders {
-            letter-spacing: 0.5em;
-            background: linear-gradient(to right, #fff, #666);
+            letter-spacing: 0.3em;
+            background: linear-gradient(to right, #fff 20%, #666 50%, #fff 80%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shine 3s infinite linear;
+            animation: shine 4s linear infinite;
         }
         @keyframes shine {
-            0% { background-position: -100px; }
-            100% { background-position: 100px; }
+            to { background-position: 200% center; }
         }
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
@@ -38,79 +38,90 @@
             font-size: 2.5rem;
             font-weight: 700;
             font-variant-numeric: tabular-nums;
+            line-height: 1;
         }
         @media (max-width: 768px) {
-            .countdown-num { font-size: 1.5rem; }
+            .countdown-num { font-size: 1.8rem; }
+            .beyond-borders { letter-spacing: 0.15em; }
         }
     </style>
 </head>
 <body>
     <div class="fixed top-0 left-0 w-full h-full -z-10">
-        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-600/20 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-orange-600/10 blur-[120px] rounded-full"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-indigo-600/15 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-orange-600/10 blur-[120px] rounded-full"></div>
     </div>
 
     <nav class="fixed w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
         <div class="flex items-center">
             <a href="/">
-                <img src="abcd_Logo_C.png" alt="abcd Logo" class="h-6 md:h-8 w-auto">
+                <img src="abcd_Logo_C.png" alt="abcd Logo" class="h-6 md:h-8 w-auto hover:opacity-80 transition">
             </a>
         </div>
-        <div class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-bold">
+        <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest font-bold">
             <a href="https://x.com/abcd_web3_" target="_blank" class="hover:text-indigo-400 transition">Twitter (X)</a>
             <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Linktree</a>
         </div>
-        <button class="px-4 py-2 border border-white/20 rounded-full text-[10px] md:text-xs font-bold hover:bg-white hover:text-black transition uppercase">
-            Get Access
-        </button>
+        <a href="https://luma.com/rf2wk90w" target="_blank" class="px-5 py-2 border border-white/20 rounded-full text-[10px] font-bold hover:bg-white hover:text-black transition uppercase relative overflow-hidden group">
+            <span class="relative z-10">Register Now</span>
+            <div class="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+        </a>
     </nav>
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20">
-        <div class="mb-4 inline-block px-4 py-1 border border-indigo-500/50 rounded-full text-[10px] md:text-xs tracking-[0.3em] text-indigo-400 uppercase font-bold">
-            Live Event in Kuala Lumpur
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-28 pb-12">
+        <div class="mb-4 inline-block px-4 py-1 border border-indigo-500/30 rounded-full text-[10px] tracking-[0.3em] text-indigo-400 uppercase font-bold animate-pulse">
+            Upcoming Expedition in KL
         </div>
-        <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-2 leading-none">
-            abcd<span class="text-white">:</span><br>
-            <span class="beyond-borders text-2xl md:text-4xl block mt-4">BEYOND BORDERS</span>
+
+        <div class="text-xl md:text-2xl font-black tracking-tighter mb-2 text-white/70">
+            abcd<span class="text-indigo-500">.</span>
+        </div>
+        
+        <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-4 leading-[1.05] md:leading-none">
+            APAC<br>
+            <span class="abcd-gradient">BLOCKCHAIN</span><br>
+            DAY
         </h1>
 
-        <div class="mt-12 mb-12 flex gap-4 md:gap-8 justify-center">
+        <span class="beyond-borders text-2xl md:text-4xl block mt-4 font-bold uppercase">BEYOND BORDERS</span>
+
+        <div class="mt-12 mb-14 flex gap-4 md:gap-10 justify-center items-end">
             <div class="flex flex-col">
                 <span id="days" class="countdown-num abcd-gradient">00</span>
-                <span class="text-[10px] uppercase tracking-widest text-gray-500">Days</span>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mt-2 font-bold">Days</span>
             </div>
             <div class="flex flex-col">
                 <span id="hours" class="countdown-num text-white">00</span>
-                <span class="text-[10px] uppercase tracking-widest text-gray-500">Hours</span>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mt-2 font-bold">Hours</span>
             </div>
             <div class="flex flex-col">
                 <span id="minutes" class="countdown-num text-white">00</span>
-                <span class="text-[10px] uppercase tracking-widest text-gray-500">Mins</span>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mt-2 font-bold">Mins</span>
             </div>
-            <div class="flex flex-col">
-                <span id="seconds" class="countdown-num text-white">00</span>
-                <span class="text-[10px] uppercase tracking-widest text-gray-500">Secs</span>
+            <div class="flex flex-col text-indigo-500/50">
+                <span id="seconds" class="countdown-num">00</span>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mt-2 font-bold font-mono">Secs</span>
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
-            <a href="https://linktr.ee/abcd.web3" class="px-10 py-4 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+        <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto items-center">
+            <a href="https://luma.com/rf2wk90w" target="_blank" class="w-full md:w-auto px-12 py-5 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_40px_rgba(255,255,255,0.2)] text-base">
                 REGISTER NOW
             </a>
-            <div class="px-10 py-4 glass-card rounded-full font-bold text-sm">
-                APRIL 5, 16:00 (GMT+8)
+            <div class="w-full md:w-auto px-10 py-5 glass-card rounded-full font-bold text-xs tracking-widest text-gray-300">
+                APRIL 5 · 16:00 (GMT+8)
             </div>
         </div>
     </section>
 
     <footer class="py-12 text-center border-t border-white/5 px-6">
-        <p class="text-gray-600 text-[10px] tracking-widest uppercase">
-            © 2026 APAC BLOCKCHAIN DAY. Beyond Borders Expedition.
+        <p class="text-gray-600 text-[10px] tracking-widest uppercase font-bold">
+            © 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem.
         </p>
     </footer>
 
     <script>
-        // 设置目标时间：2026年4月5日 16:00 (马来西亚/新加坡时间 GMT+8)
+        // 目标时间：2026年4月5日 16:00 (Kuala Lumpur GMT+8)
         const targetDate = new Date("April 5, 2026 16:00:00").getTime();
 
         function updateCountdown() {
@@ -136,8 +147,8 @@
             document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
         }
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
     </script>
 </body>
 </html>
