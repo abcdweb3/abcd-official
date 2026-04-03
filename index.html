@@ -34,8 +34,15 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
-        /* 强化倒计时尺寸 */
+        @media (min-width: 768px) {
+            .glass-card:hover {
+                border-color: rgba(255, 255, 255, 0.3);
+                background: rgba(255, 255, 255, 0.07);
+                transform: translateY(-5px);
+            }
+        }
         .countdown-num {
             font-size: 3.5rem;
             font-weight: 700;
@@ -67,13 +74,12 @@
             <a href="https://x.com/abcd_web3_" target="_blank" class="hover:text-indigo-400 transition">Twitter (X)</a>
             <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Linktree</a>
         </div>
-        <a href="https://luma.com/rf2wk90w" target="_blank" class="px-5 py-2 border border-white/20 rounded-full text-[10px] font-bold hover:bg-white hover:text-black transition uppercase relative overflow-hidden group">
-            <span class="relative z-10">Register Now</span>
-            <div class="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+        <a href="https://luma.com/rf2wk90w" target="_blank" class="px-5 py-2 border border-white/20 rounded-full text-[10px] font-bold hover:bg-white hover:text-black transition uppercase relative">
+            Register Now
         </a>
     </nav>
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-28 pb-12">
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-32 pb-20">
         <div class="mb-6 inline-block px-4 py-1 border border-indigo-500/30 rounded-full text-[10px] tracking-[0.3em] text-indigo-400 uppercase font-bold animate-pulse">
             Upcoming Expedition in KL
         </div>
@@ -89,19 +95,19 @@
         <div class="mt-12 mb-16 flex gap-4 md:gap-14 justify-center items-end">
             <div class="flex flex-col">
                 <span id="days" class="countdown-num abcd-gradient">00</span>
-                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold">Days</span>
+                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold text-center">Days</span>
             </div>
             <div class="flex flex-col">
                 <span id="hours" class="countdown-num text-white">00</span>
-                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold">Hours</span>
+                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold text-center">Hours</span>
             </div>
             <div class="flex flex-col">
                 <span id="minutes" class="countdown-num text-white">00</span>
-                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold">Mins</span>
+                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold text-center">Mins</span>
             </div>
             <div class="flex flex-col text-indigo-500/40">
                 <span id="seconds" class="countdown-num">00</span>
-                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold font-mono">Secs</span>
+                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold font-mono text-center text-center">Secs</span>
             </div>
         </div>
 
@@ -115,14 +121,38 @@
         </div>
     </section>
 
-    <footer class="py-12 text-center border-t border-white/5 px-6">
+    <section class="py-20 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
+                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #00C2FF;">A</div>
+                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Adoption</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light">推动区块链技术在亚太地区的真实应用场景落地。</p>
+            </div>
+            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
+                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #7000FF;">B</div>
+                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Building</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light">赋能开发者与 Builder，构建去中心化的未来基础设施。</p>
+            </div>
+            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
+                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF007A;">C</div>
+                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Connection</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light">打破隔阂，连接 VC、创始人与高价值 Web3 社区。</p>
+            </div>
+            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
+                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF9900;">D</div>
+                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Discovery</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light">发掘亚太市场的下一个 Alpha 机会与独角兽项目。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center border-t border-white/5 px-6 mt-10">
         <p class="text-gray-600 text-[10px] tracking-widest uppercase font-bold">
             © 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem.
         </p>
     </footer>
 
     <script>
-        // 目标时间：2026年4月5日 16:00 (Kuala Lumpur GMT+8)
         const targetDate = new Date("April 5, 2026 16:00:00").getTime();
 
         function updateCountdown() {
