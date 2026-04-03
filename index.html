@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APAC BLOCKCHAIN DAY | abcd</title>
+    <title>abcd: BEYOND BORDERS | APAC BLOCKCHAIN DAY</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap');
@@ -18,102 +18,126 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .hero-glow {
-            position: absolute;
-            width: 120vw;
-            height: 120vw;
-            background: radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, rgba(255, 153, 0, 0.05) 50%, transparent 100%);
-            filter: blur(60px);
-            z-index: -1;
+        .beyond-borders {
+            letter-spacing: 0.5em;
+            background: linear-gradient(to right, #fff, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s infinite linear;
+        }
+        @keyframes shine {
+            0% { background-position: -100px; }
+            100% { background-position: 100px; }
         }
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
         }
-        @media (min-width: 768px) {
-            .glass-card:hover {
-                border-color: rgba(255, 255, 255, 0.3);
-                background: rgba(255, 255, 255, 0.07);
-                transform: translateY(-5px);
-            }
+        .countdown-num {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
         }
-        .nav-logo {
-            height: 24px; /* 移动端稍小 */
-            width: auto;
-        }
-        @media (min-width: 768px) {
-            .nav-logo { height: 32px; }
+        @media (max-width: 768px) {
+            .countdown-num { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="hero-glow top-[-40vw] left-[-20vw] md:top-[-20vw] md:left-[-10vw]"></div>
+    <div class="fixed top-0 left-0 w-full h-full -z-10">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-orange-600/10 blur-[120px] rounded-full"></div>
+    </div>
 
     <nav class="fixed w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
         <div class="flex items-center">
             <a href="/">
-                <img src="abcd_Logo_C.png" alt="abcd Logo" class="nav-logo">
+                <img src="abcd_Logo_C.png" alt="abcd Logo" class="h-6 md:h-8 w-auto">
             </a>
         </div>
-        
         <div class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-bold">
             <a href="https://x.com/abcd_web3_" target="_blank" class="hover:text-indigo-400 transition">Twitter (X)</a>
             <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Linktree</a>
         </div>
-
-        <button class="px-4 py-2 md:px-6 md:py-2 border border-white/20 rounded-full text-[10px] md:text-xs font-bold hover:bg-white hover:text-black transition uppercase">
-            Connect
+        <button class="px-4 py-2 border border-white/20 rounded-full text-[10px] md:text-xs font-bold hover:bg-white hover:text-black transition uppercase">
+            Get Access
         </button>
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20">
-        <h2 class="text-[10px] md:text-base uppercase tracking-[0.3em] md:tracking-[0.4em] mb-4 md:mb-6 text-gray-400">The Pulse of Asia's Web3</h2>
-        <h1 class="text-5xl md:text-9xl font-black tracking-tighter mb-8 leading-[1.1] md:leading-none">
-            APAC<br class="md:hidden">
-            <span class="abcd-gradient">BLOCKCHAIN</span><br>
-            DAY
+        <div class="mb-4 inline-block px-4 py-1 border border-indigo-500/50 rounded-full text-[10px] md:text-xs tracking-[0.3em] text-indigo-400 uppercase font-bold">
+            Live Event in Kuala Lumpur
+        </div>
+        <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-2 leading-none">
+            abcd<span class="text-white">:</span><br>
+            <span class="beyond-borders text-2xl md:text-4xl block mt-4">BEYOND BORDERS</span>
         </h1>
-        <div class="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full md:w-auto">
-            <a href="https://linktr.ee/abcd.web3" class="px-10 py-4 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_30px_rgba(255,255,255,0.3)] text-sm md:text-base">
-                JOIN COMMUNITY
-            </a>
-            <a href="https://x.com/abcd_web3_" class="px-10 py-4 glass-card rounded-full font-bold text-sm md:text-base">
-                FOLLOW UPDATES
-            </a>
-        </div>
-    </section>
 
-    <section class="py-16 md:py-24 max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #00C2FF;">A</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase">Adoption</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">推动区块链技术在亚太地区的真实应用场景落地。</p>
+        <div class="mt-12 mb-12 flex gap-4 md:gap-8 justify-center">
+            <div class="flex flex-col">
+                <span id="days" class="countdown-num abcd-gradient">00</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Days</span>
             </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #7000FF;">B</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase">Building</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">赋能开发者与 Builder，构建去中心化的未来基础设施。</p>
+            <div class="flex flex-col">
+                <span id="hours" class="countdown-num text-white">00</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Hours</span>
             </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF007A;">C</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase">Connection</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">打破隔阂，连接 VC、创始人与高价值 Web3 社区。</p>
+            <div class="flex flex-col">
+                <span id="minutes" class="countdown-num text-white">00</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Mins</span>
             </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF9900;">D</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase">Discovery</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">发掘亚太市场的下一个 Alpha 机会与独角兽项目。</p>
+            <div class="flex flex-col">
+                <span id="seconds" class="countdown-num text-white">00</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Secs</span>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+            <a href="https://linktr.ee/abcd.web3" class="px-10 py-4 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                REGISTER NOW
+            </a>
+            <div class="px-10 py-4 glass-card rounded-full font-bold text-sm">
+                APRIL 5, 16:00 (GMT+8)
             </div>
         </div>
     </section>
 
-    <footer class="py-12 md:py-20 text-center border-t border-white/5 px-6">
-        <p class="text-gray-600 text-[10px] md:text-sm tracking-widest uppercase">
-            © 2026 APAC BLOCKCHAIN DAY. Built for the Builders.
+    <footer class="py-12 text-center border-t border-white/5 px-6">
+        <p class="text-gray-600 text-[10px] tracking-widest uppercase">
+            © 2026 APAC BLOCKCHAIN DAY. Beyond Borders Expedition.
         </p>
     </footer>
+
+    <script>
+        // 设置目标时间：2026年4月5日 16:00 (马来西亚/新加坡时间 GMT+8)
+        const targetDate = new Date("April 5, 2026 16:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
