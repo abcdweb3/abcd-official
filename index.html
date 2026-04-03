@@ -37,19 +37,32 @@
             background: rgba(255, 255, 255, 0.07);
             transform: translateY(-5px);
         }
+        /* 针对 Logo 的微调 */
+        .nav-logo {
+            height: 32px; /* 调整导航栏 Logo 高度 */
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
     <div class="hero-glow top-[-20vw] left-[-10vw]"></div>
 
-    <nav class="fixed w-full p-6 flex justify-between items-center z-50 backdrop-blur-md">
-        <div class="text-2xl font-bold tracking-tighter">
-            <span class="abcd-gradient">abcd</span><span class="text-white">.</span>
+    <nav class="fixed w-full p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
+        <div class="flex items-center">
+            <a href="/">
+                <img src="abcd_Logo_C.png" alt="abcd Logo" class="nav-logo">
+            </a>
         </div>
+        
         <div class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-bold">
             <a href="https://x.com/abcd_web3_" target="_blank" class="hover:text-indigo-400 transition">Twitter (X)</a>
             <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Linktree</a>
         </div>
+
         <button class="px-6 py-2 border border-white/20 rounded-full text-xs font-bold hover:bg-white hover:text-black transition uppercase">
             Connect Wallet
         </button>
