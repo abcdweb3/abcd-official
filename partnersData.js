@@ -65,6 +65,12 @@ export const partners = [
   { name: "DASH", logo: "/logos/Dash.webp", type: "Payment" },
   { name: "CRM AURUM", logo: "/logos/CRMAURUM.png", type: "Community" },
   { name: "DianDi Finance", logo: "/logos/DianDi.png", type: "Media" },
-  { name: "OTG", logo: "/logos/OTG.png", type: "Community" },
+  { name: "Bright Vision", logo: "/logos/BV.svg", type: "Incubator" },
+  { name: "Double Dew", logo: "/logos/DoubleDew.svg", type: "Production" },
+  { name: "Chain Catcher", logo: "/logos/ChainCatcher.png", type: "Media" },
+  { name: "XOX", logo: "/logos/XOX.png", type: "DeFi" },
+  { name: "YiBen Finance", logo: "/logos/YiBen.jpeg", type: "Media" },
+  { name: "SWA", logo: "/logos/SWA.png", type: "Services" },
+  { name: "Taylors Blockchain Club", logo: "/logos/TaylorsBCC.png", type: "Community" },
   // 以后直接在这里复制粘贴
 ];
