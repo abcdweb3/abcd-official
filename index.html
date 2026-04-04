@@ -56,14 +56,13 @@
         }
         [data-lang]:not(.active) { display: none; }
 
-        /* --- 合作伙伴走马灯专属样式 --- */
+        /* --- 合作伙伴走马灯专属样式 (对齐优化版) --- */
         .marquee-container {
             position: relative;
             width: 100%;
             overflow: hidden;
             padding: 20px 0;
         }
-        /* 左右两侧羽化遮罩 */
         .marquee-container::before, .marquee-container::after {
             content: "";
             position: absolute;
@@ -79,11 +78,11 @@
         .marquee-track {
             display: flex;
             width: max-content;
-            gap: 60px;
-            padding: 20px 0;
-            animation: scroll 40s linear infinite;
+            gap: 40px;
+            padding: 10px 0;
+            animation: scroll 45s linear infinite;
         }
-        .marquee-track.reverse { animation: scroll-reverse 40s linear infinite; }
+        .marquee-track.reverse { animation: scroll-reverse 45s linear infinite; }
         .marquee-track:hover { animation-play-state: paused; }
 
         @keyframes scroll {
@@ -94,18 +93,46 @@
             from { transform: translateX(-50%); }
             to { transform: translateX(0); }
         }
+
+        /* 统一的 Logo 容器，解决大小不一的问题 */
+        .partner-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 140px;  /* 容器宽度固定 */
+            height: 80px;  /* 容器高度固定 */
+            flex-shrink: 0;
+        }
+
         .partner-img {
-            height: 45px;
+            max-height: 50px; /* 限制最高高度 */
+            max-width: 110px; /* 限制最宽宽度 */
             width: auto;
-            object-contain: contain;
+            height: auto;
+            object-fit: contain; /* 关键：保持比例并在容器内居中 */
             opacity: 0.4;
             filter: grayscale(100%);
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .partner-img:hover {
+
+        .partner-wrapper:hover .partner-img {
             opacity: 1;
             filter: grayscale(0%);
             transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            .partner-wrapper {
+                width: 100px;
+                height: 60px;
+            }
+            .partner-img {
+                max-height: 35px;
+                max-width: 80px;
+            }
+            .marquee-track {
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -208,7 +235,6 @@
     <script type="module">
         import { partners } from './partnersData.js';
 
-        // 初始化多语言词典（补充合作伙伴标题）
         const translations = {
             en: {
                 "nav-reg": "Register Now", "hero-tag": "Upcoming Expedition in KL",
@@ -252,7 +278,7 @@
 
         applyLanguage(currentLang);
 
-        // 合作伙伴走马灯逻辑
+        // 合作伙伴渲染逻辑 (优化对齐方案)
         const row1 = document.getElementById('row1');
         const row2 = document.getElementById('row2');
         const midpoint = Math.ceil(partners.length / 2);
@@ -260,13 +286,15 @@
         const set2 = partners.slice(midpoint);
 
         function renderLogos(container, data) {
-            const displayData = [...data, ...data, ...data]; // 三倍数据确保长屏幕无缝
+            // 使用四倍数据量确保超宽屏也能无缝循环
+            const displayData = [...data, ...data, ...data, ...data]; 
             container.innerHTML = displayData.map(p => `
-                <div class="flex items-center justify-center">
+                <div class="partner-wrapper">
                     <img src="${p.logo}" alt="${p.name}" class="partner-img" title="${p.type}: ${p.name}">
                 </div>
             `).join('');
         }
+        
         renderLogos(row1, set1);
         renderLogos(row2, set2);
 
