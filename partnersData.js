@@ -31,7 +31,7 @@ export const partners = [
   { name: "Bit2Travel", logo: "/logos/B2T.png", type: "Travel" },
   { name: "Bitcoin Malaysia", logo: "/logos/bitcoinmalaysia.png", type: "Community" },
   { name: "BinJun Global Labs", logo: "/logos/BJ.png", type: "Incubator" },
-  { name: "Blockchain Of The Day", logo: "/logos/BOTD.png", type: "Media" },
+  { name: "Blockchain Of The Day", logo: "/logos/BOTD.PNG", type: "Media" },
   { name: "CertiK", logo: "/logos/CertiK.png", type: "Security" },
   { name: "CRM Q", logo: "/logos/CRMQ.png", type: "Trading" },
   { name: "DI", logo: "/logos/DI.png", type: "DePin" },
