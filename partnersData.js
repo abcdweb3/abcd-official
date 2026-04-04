@@ -68,7 +68,7 @@ export const partners = [
   { name: "Bright Vision", logo: "/logos/BV.svg", type: "Incubator" },
   { name: "Double Dew", logo: "/logos/DoubleDew.svg", type: "Production" },
   { name: "Chain Catcher", logo: "/logos/ChainCatcher.png", type: "Media" },
-  { name: "XOX", logo: "/logos/XOX.png", type: "DeFi" },
+  { name: "XOX", logo: "/logos/XOX.svg", type: "DeFi" },
   { name: "YiBen Finance", logo: "/logos/YiBen.jpeg", type: "Media" },
   { name: "SWA", logo: "/logos/SWA.png", type: "Services" },
   { name: "Taylors Blockchain Club", logo: "/logos/TaylorsBCC.png", type: "Community" },
