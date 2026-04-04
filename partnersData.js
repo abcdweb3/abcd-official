@@ -39,5 +39,16 @@ export const partners = [
   { name: "JCI Entrepreneur Metropolitan KL", logo: "/logos/JCI.png", type: "Community" },
   { name: "KiraPay", logo: "/logos/kirapay.png", type: "Payment" },
   { name: "Pudgy Malaysia", logo: "/logos/PudgyMalaysia.png", type: "Community" },
+  { name: "Mamak3.0", logo: "/logos/Mamak.png", type: "Community" },
+  { name: "OffChain", logo: "/logos/OffChain.png", type: "Community" },
+  { name: "Singapore Blockchain Week", logo: "/logos/SBW.png", type: "Event" },
+  { name: "Malaysia Blockchain Week", logo: "/logos/MYBW26.png", type: "Event" },
+  { name: "Non Ca Phe", logo: "/logos/NonCaPhe.png", type: "F&B" },
+  { name: "TAI Community", logo: "/logos/TAI.png", type: "Community" },
+  { name: "TankDAO", logo: "/logos/TankDAO.png", type: "Incubator" },
+  { name: "TARUMT Blockchain Club", logo: "/logos/TARUMTBCC.png", type: "Community" },
+  { name: "SuperTeam Malaysia", logo: "/logos/SuperteamMY.png", type: "Community" },
+  { name: "TERRA", logo: "/logos/Terra.png", type: "RWA" },
+  { name: "TurboX", logo: "/logos/TurboX.png", type: "Launchpad" },
   // 以后直接在这里复制粘贴
 ];
