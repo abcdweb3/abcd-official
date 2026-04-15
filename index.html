@@ -47,17 +47,6 @@
                 transform: translateY(-5px);
             }
         }
-        .countdown-num {
-            font-size: 3.5rem;
-            font-weight: 700;
-            font-variant-numeric: tabular-nums;
-            line-height: 1;
-        }
-        @media (min-width: 768px) { .countdown-num { font-size: 5rem; } }
-        @media (max-width: 768px) { 
-            .countdown-num { font-size: 2.2rem; }
-            .beyond-borders { letter-spacing: 0.15em; }
-        }
         [data-lang]:not(.active) { display: none; }
 
         /* --- 合作伙伴走马灯专属样式 --- */
@@ -149,38 +138,33 @@
                 <a href="https://x.com/abcd_web3_" target="_blank" class="hover:text-indigo-400 transition">Twitter (X)</a>
                 <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Linktree</a>
             </div>
-            <a href="https://luma.com/rf2wk90w" target="_blank" class="px-5 py-2 border border-white/20 rounded-full text-[10px] font-bold hover:bg-white hover:text-black transition uppercase">
-                <span data-i18n="nav-reg">Register Now</span>
+            <a href="https://linktr.ee/abcd.web3" target="_blank" class="px-5 py-2 bg-white text-black rounded-full text-[10px] font-bold hover:bg-white hover:text-black transition uppercase">
+                <span data-i18n="nav-community">Join Community</span>
             </a>
         </div>
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-32 pb-20">
-        <div class="mb-6 inline-block px-4 py-1 border border-indigo-500/30 rounded-full text-[10px] tracking-[0.3em] text-indigo-400 uppercase font-bold animate-pulse">
-            <span data-i18n="hero-tag">Upcoming Expedition in KL</span>
+        <div class="mb-6 inline-block px-4 py-1 border border-green-500/30 rounded-full text-[10px] tracking-[0.3em] text-green-400 uppercase font-bold">
+            <span data-i18n="hero-tag">Mission Accomplished · Kuala Lumpur</span>
         </div>
         <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-4 leading-[1.05] md:leading-none">
             APAC<br><span class="abcd-gradient">BLOCKCHAIN</span><br>DAY
         </h1>
-        <span class="beyond-borders text-3xl md:text-6xl block mt-6 mb-4 font-black uppercase">BEYOND BORDERS</span>
+        <span class="beyond-borders text-3xl md:text-6xl block mt-6 mb-12 font-black uppercase">BEYOND BORDERS</span>
 
-        <div class="mt-12 mb-16 flex gap-4 md:gap-14 justify-center items-end text-center">
-            <div class="flex flex-col">
-                <span id="days" class="countdown-num abcd-gradient">00</span>
-                <span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-days">Days</span>
-            </div>
-            <div class="flex flex-col"><span id="hours" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-hours">Hours</span></div>
-            <div class="flex flex-col"><span id="minutes" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-mins">Mins</span></div>
-            <div class="flex flex-col text-indigo-500/40"><span id="seconds" class="countdown-num">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold font-mono" data-i18n="count-secs">Secs</span></div>
+        <div class="max-w-2xl glass-card p-8 md:p-12 rounded-[2rem] mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 uppercase tracking-tight" data-i18n="thank-you">THANK YOU FOR JOINING US</h2>
+            <p class="text-gray-400 text-sm md:text-base leading-relaxed font-light" data-i18n="thank-desc">The Beyond Borders expedition in KL has successfully concluded. Stay tuned for our next destination.</p>
         </div>
 
         <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto items-center">
-            <a href="https://luma.com/rf2wk90w" target="_blank" class="w-full md:w-auto px-14 py-6 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_50px_rgba(255,255,255,0.25)] text-lg uppercase">
-                <span data-i18n="btn-reg">Register Now</span>
+            <a href="https://x.com/abcd_web3_" target="_blank" class="w-full md:w-auto px-14 py-6 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_50px_rgba(255,255,255,0.25)] text-lg uppercase">
+                <span data-i18n="btn-follow">Follow Recap</span>
             </a>
-            <div class="w-full md:w-auto px-10 py-6 glass-card rounded-full font-bold text-xs tracking-widest text-gray-300">
-                <span data-i18n="event-date">APRIL 5 · 16:00 (GMT+8)</span>
-            </div>
+            <a href="https://linktr.ee/abcd.web3" target="_blank" class="w-full md:w-auto px-10 py-6 glass-card rounded-full font-bold text-xs tracking-widest text-gray-300 uppercase">
+                Join the Ecosystem
+            </a>
         </div>
     </section>
 
@@ -231,9 +215,11 @@
 
         const translations = {
             en: {
-                "nav-reg": "Register Now", "hero-tag": "Upcoming Expedition in KL",
-                "count-days": "Days", "count-hours": "Hours", "count-mins": "Mins", "count-secs": "Secs",
-                "btn-reg": "Register Now", "event-date": "APRIL 5 · 16:00 (GMT+8)",
+                "nav-community": "Join Community", 
+                "hero-tag": "Mission Accomplished · Kuala Lumpur",
+                "thank-you": "THANK YOU FOR JOINING US",
+                "thank-desc": "The Beyond Borders expedition in KL has successfully concluded. Stay tuned for our next destination.",
+                "btn-follow": "Follow Recap",
                 "card-a": "Driving real-world blockchain use cases across the APAC region.",
                 "card-b": "Empowering builders to create next-gen decentralized infrastructure.",
                 "card-c": "Bridging VCs, founders, and high-value Web3 communities.",
@@ -242,9 +228,11 @@
                 "footer": "© 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem."
             },
             zh: {
-                "nav-reg": "立即注册", "hero-tag": "吉隆坡活动即将来临",
-                "count-days": "天", "count-hours": "时", "count-mins": "分", "count-secs": "秒",
-                "btn-reg": "立即注册", "event-date": "4月5日 · 16:00 (马来西亚时间)",
+                "nav-community": "加入社区", 
+                "hero-tag": "圆满收官 · 吉隆坡站",
+                "thank-you": "感谢您的参与",
+                "thank-desc": "Beyond Borders 吉隆坡站活动已圆满结束。请期待我们的下一站旅程。",
+                "btn-follow": "查看回顾",
                 "card-a": "推动区块链技术在亚太地区的真实应用场景落地。",
                 "card-b": "赋能开发者与 Builder，构建去中心化的未来基础设施。",
                 "card-c": "打破隔阂，连接 VC、创始人与高价值 Web3 社区。",
@@ -290,20 +278,6 @@
         
         renderLogos(row1, set1);
         renderLogos(row2, set2);
-
-        // 倒计时
-        const targetDate = new Date("April 5, 2026 16:00:00").getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-            if (distance < 0) return;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
     </script>
 </body>
 </html>
