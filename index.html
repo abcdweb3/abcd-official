@@ -3,260 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abcd | APAC BLOCKCHAIN DAY</title>
-    
+    <title>APAC BLOCKCHAIN DAY | BEYOND BORDERS</title>
     <link rel="icon" type="image/png" href="abcd_Logo_C.png">
-    <link rel="apple-touch-icon" href="abcd_Logo_C.png">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap');
-        body { 
-            font-family: 'Space Grotesk', sans-serif; 
-            background-color: #000; 
-            color: white; 
-            overflow-x: hidden; 
-        }
-        .abcd-gradient {
-            background: linear-gradient(90deg, #00C2FF 0%, #7000FF 30%, #FF007A 70%, #FF9900 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .beyond-borders {
-            letter-spacing: 0.4em;
-            background: linear-gradient(to right, #fff 20%, #666 50%, #fff 80%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s linear infinite;
-            line-height: 1.2;
-        }
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        @media (min-width: 768px) {
-            .glass-card:hover {
-                border-color: rgba(255, 255, 255, 0.3);
-                background: rgba(255, 255, 255, 0.07);
-                transform: translateY(-5px);
-            }
-        }
-        .countdown-num {
-            font-size: 3.5rem;
-            font-weight: 700;
-            font-variant-numeric: tabular-nums;
-            line-height: 1;
-        }
-        @media (min-width: 768px) { .countdown-num { font-size: 5rem; } }
-        @media (max-width: 768px) { 
-            .countdown-num { font-size: 2.2rem; }
-            .beyond-borders { letter-spacing: 0.15em; }
-        }
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #000; color: white; overflow-x: hidden; }
+        .abcd-gradient { background: linear-gradient(90deg, #00C2FF 0%, #7000FF 30%, #FF007A 70%, #FF9900 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .beyond-borders { letter-spacing: 0.4em; background: linear-gradient(to right, #fff 20%, #666 50%, #fff 80%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 4s linear infinite; line-height: 1.2; }
+        @keyframes shine { to { background-position: 200% center; } }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
         [data-lang]:not(.active) { display: none; }
-
-        /* --- 合作伙伴走马灯专属样式 --- */
-        .marquee-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-        .marquee-container::before, .marquee-container::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: 150px;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .marquee-container::before { left: 0; background: linear-gradient(to right, #000, transparent); }
-        .marquee-container::after { right: 0; background: linear-gradient(to left, #000, transparent); }
-
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            gap: 40px;
-            padding: 10px 0;
-            animation: scroll 45s linear infinite;
-        }
-        .marquee-track.reverse { animation: scroll-reverse 45s linear infinite; }
-        .marquee-track:hover { animation-play-state: paused; }
-
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        @keyframes scroll-reverse {
-            from { transform: translateX(-50%); }
-            to { transform: translateX(0); }
-        }
-
-        .partner-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 140px;
-            height: 80px;
-            flex-shrink: 0;
-        }
-
-        .partner-img {
-            max-height: 50px;
-            max-width: 110px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            opacity: 0.4;
-            filter: grayscale(100%);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .partner-wrapper:hover .partner-img {
-            opacity: 1;
-            filter: grayscale(0%);
-            transform: scale(1.15);
-        }
-
-        @media (max-width: 768px) {
-            .partner-wrapper { width: 100px; height: 60px; }
-            .partner-img { max-height: 35px; max-width: 80px; }
-            .marquee-track { gap: 20px; }
-        }
     </style>
 </head>
 <body>
-    <div class="fixed top-0 left-0 w-full h-full -z-10">
-        <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-indigo-600/15 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-orange-600/10 blur-[120px] rounded-full"></div>
-    </div>
-
     <nav class="fixed w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
-        <div class="flex items-center">
-            <a href="/"><img src="abcd_Logo_C.png" alt="abcd Logo" class="h-6 md:h-8 w-auto hover:opacity-80 transition"></a>
-        </div>
-        <div class="flex items-center gap-4 md:gap-8">
-            <button onclick="toggleLanguage()" class="text-[10px] font-bold tracking-widest px-3 py-1 border border-white/10 rounded hover:bg-white/5 transition">
+        <div class="flex items-center"><a href="/"><img src="abcd_Logo_C.png" alt="abcd Logo" class="h-6 md:h-8 w-auto"></a></div>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleLanguage()" class="text-[10px] font-bold px-3 py-1 border border-white/10 rounded">
                 <span id="lang-toggle-text">EN / 中</span>
             </button>
-            <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest font-bold">
-                <a href="https://x.com/abcd_web3_" target="_blank" class="hover:text-indigo-400 transition">Twitter (X)</a>
-                <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Linktree</a>
-            </div>
-            <a href="https://luma.com/rf2wk90w" target="_blank" class="px-5 py-2 border border-white/20 rounded-full text-[10px] font-bold hover:bg-white hover:text-black transition uppercase">
-                <span data-i18n="nav-reg">Register Now</span>
+            <a href="https://linktr.ee/abcd.web3" target="_blank" class="px-5 py-2 bg-white text-black rounded-full text-[10px] font-bold uppercase">
+                <span data-i18n="nav-community">Join Community</span>
             </a>
         </div>
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-32 pb-20">
-        <div class="mb-6 inline-block px-4 py-1 border border-indigo-500/30 rounded-full text-[10px] tracking-[0.3em] text-indigo-400 uppercase font-bold animate-pulse">
-            <span data-i18n="hero-tag">Upcoming Expedition in KL</span>
+        <div class="mb-6 inline-block px-4 py-1 border border-green-500/30 rounded-full text-[10px] tracking-[0.3em] text-green-400 uppercase font-bold">
+            <span data-i18n="hero-tag">Mission Accomplished · Kuala Lumpur</span>
         </div>
-        <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-4 leading-[1.05] md:leading-none">
-            APAC<br><span class="abcd-gradient">BLOCKCHAIN</span><br>DAY
-        </h1>
-        <span class="beyond-borders text-3xl md:text-6xl block mt-6 mb-4 font-black uppercase">BEYOND BORDERS</span>
+        <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-4">APAC<br><span class="abcd-gradient">BLOCKCHAIN</span><br>DAY</h1>
+        <span class="beyond-borders text-3xl md:text-6xl block mt-6 mb-12 font-black uppercase">BEYOND BORDERS</span>
 
-        <div class="mt-12 mb-16 flex gap-4 md:gap-14 justify-center items-end text-center">
-            <div class="flex flex-col">
-                <span id="days" class="countdown-num abcd-gradient">00</span>
-                <span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-days">Days</span>
-            </div>
-            <div class="flex flex-col"><span id="hours" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-hours">Hours</span></div>
-            <div class="flex flex-col"><span id="minutes" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-mins">Mins</span></div>
-            <div class="flex flex-col text-indigo-500/40"><span id="seconds" class="countdown-num">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold font-mono" data-i18n="count-secs">Secs</span></div>
+        <div class="max-w-2xl glass-card p-8 rounded-3xl mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4" data-i18n="thank-you">THANK YOU FOR SHAPING THE FUTURE WITH US</h2>
+            <p class="text-gray-400 text-sm md:text-base leading-relaxed" data-i18n="thank-desc">The Beyond Borders expedition in KL has successfully concluded. Stay tuned for our next destination.</p>
         </div>
 
-        <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto items-center">
-            <a href="https://luma.com/rf2wk90w" target="_blank" class="w-full md:w-auto px-14 py-6 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_50px_rgba(255,255,255,0.25)] text-lg uppercase">
-                <span data-i18n="btn-reg">Register Now</span>
+        <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+            <a href="https://x.com/abcd_web3_" target="_blank" class="px-12 py-5 bg-white text-black font-black rounded-full hover:scale-105 transition text-base uppercase">
+                <span data-i18n="btn-follow">Follow Recap</span>
             </a>
-            <div class="w-full md:w-auto px-10 py-6 glass-card rounded-full font-bold text-xs tracking-widest text-gray-300">
-                <span data-i18n="event-date">APRIL 5 · 16:00 (GMT+8)</span>
-            </div>
+            <a href="https://linktr.ee/abcd.web3" target="_blank" class="px-10 py-5 glass-card rounded-full font-bold text-xs tracking-widest text-gray-300">
+                JOIN THE ECOSYSTEM
+            </a>
         </div>
     </section>
 
-    <section class="py-20 max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #00C2FF;">A</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Adoption</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-a">Driving real-world blockchain use cases across the APAC region.</p>
-            </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #7000FF;">B</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Building</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-b">Empowering builders to create next-gen decentralized infrastructure.</p>
-            </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF007A;">C</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Connection</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-c">Bridging VCs, founders, and high-value Web3 communities.</p>
-            </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF9900;">D</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Discovery</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-d">Uncovering the next alpha opportunities in the APAC market.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-black/50">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-4xl font-bold uppercase tracking-widest abcd-gradient inline-block" data-i18n="partner-title">Ecosystem Partners</h2>
-            <p class="text-gray-500 text-[10px] tracking-[0.4em] mt-2 uppercase font-bold" data-i18n="partner-subtitle">Scaling Beyond Borders</p>
-        </div>
-        <div class="marquee-container">
-            <div class="marquee-track" id="row1"></div>
-            <div class="marquee-track reverse" id="row2"></div>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center border-t border-white/5 px-6">
-        <p class="text-gray-600 text-[10px] tracking-widest uppercase font-bold" data-i18n="footer">
-            © 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem.
-        </p>
-    </footer>
-
-    <script type="module">
-        import { partners } from './partnersData.js';
-
+    <script>
         const translations = {
             en: {
-                "nav-reg": "Register Now", "hero-tag": "Upcoming Expedition in KL",
-                "count-days": "Days", "count-hours": "Hours", "count-mins": "Mins", "count-secs": "Secs",
-                "btn-reg": "Register Now", "event-date": "APRIL 5 · 16:00 (GMT+8)",
-                "card-a": "Driving real-world blockchain use cases across the APAC region.",
-                "card-b": "Empowering builders to create next-gen decentralized infrastructure.",
-                "card-c": "Bridging VCs, founders, and high-value Web3 communities.",
-                "card-d": "Uncovering the next alpha opportunities in the APAC market.",
-                "partner-title": "Ecosystem Partners", "partner-subtitle": "Scaling Beyond Borders",
+                "nav-community": "Join Community",
+                "hero-tag": "Mission Accomplished · Kuala Lumpur",
+                "thank-you": "THANK YOU FOR SHAPING THE FUTURE WITH US",
+                "thank-desc": "The Beyond Borders expedition in KL has successfully concluded. Stay tuned for our next destination.",
+                "btn-follow": "Follow Recap",
                 "footer": "© 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem."
             },
             zh: {
-                "nav-reg": "立即注册", "hero-tag": "吉隆坡活动即将来临",
-                "count-days": "天", "count-hours": "时", "count-mins": "分", "count-secs": "秒",
-                "btn-reg": "立即注册", "event-date": "4月5日 · 16:00 (马来西亚时间)",
-                "card-a": "推动区块链技术在亚太地区的真实应用场景落地。",
-                "card-b": "赋能开发者与 Builder，构建去中心化的未来基础设施。",
-                "card-c": "打破隔阂，连接 VC、创始人与高价值 Web3 社区。",
-                "card-d": "发掘亚太市场的下一个 Alpha 机会与独角兽项目。",
-                "partner-title": "生态合作伙伴", "partner-subtitle": "助力创新 · 连接全球",
+                "nav-community": "加入社区",
+                "hero-tag": "圆满收官 · 吉隆坡站",
+                "thank-you": "感谢与我们共同定义未来",
+                "thank-desc": "Beyond Borders 吉隆坡站活动已圆满结束，感谢所有参与者的支持。请期待我们的下一站旅程。",
+                "btn-follow": "查看活动回顾",
                 "footer": "© 2026 APAC BLOCKCHAIN DAY. 连接亚太 Web3 生态系统。"
             }
         };
 
         let currentLang = localStorage.getItem('abcd-lang') || 'en';
-
-        window.applyLanguage = function(lang) {
+        function applyLanguage(lang) {
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if(translations[lang][key]) el.innerText = translations[lang][key];
@@ -264,46 +80,8 @@
             document.getElementById('lang-toggle-text').innerText = lang === 'en' ? 'EN / 中' : '中 / EN';
             localStorage.setItem('abcd-lang', lang);
         }
-
-        window.toggleLanguage = function() {
-            currentLang = currentLang === 'en' ? 'zh' : 'en';
-            applyLanguage(currentLang);
-        }
-
+        window.toggleLanguage = () => { currentLang = currentLang === 'en' ? 'zh' : 'en'; applyLanguage(currentLang); };
         applyLanguage(currentLang);
-
-        // 合作伙伴渲染
-        const row1 = document.getElementById('row1');
-        const row2 = document.getElementById('row2');
-        const midpoint = Math.ceil(partners.length / 2);
-        const set1 = partners.slice(0, midpoint);
-        const set2 = partners.slice(midpoint);
-
-        function renderLogos(container, data) {
-            const displayData = [...data, ...data, ...data, ...data]; 
-            container.innerHTML = displayData.map(p => `
-                <div class="partner-wrapper">
-                    <img src="${p.logo}" alt="${p.name}" class="partner-img" title="${p.type}: ${p.name}">
-                </div>
-            `).join('');
-        }
-        
-        renderLogos(row1, set1);
-        renderLogos(row2, set2);
-
-        // 倒计时
-        const targetDate = new Date("April 5, 2026 16:00:00").getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-            if (distance < 0) return;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
     </script>
 </body>
 </html>
