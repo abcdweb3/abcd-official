@@ -78,6 +78,15 @@
         .partner-wrapper { display: flex; align-items: center; justify-content: center; width: 140px; height: 80px; flex-shrink: 0; }
         .partner-img { max-height: 50px; max-width: 110px; opacity: 0.4; filter: grayscale(100%); transition: 0.4s; }
         .partner-wrapper:hover .partner-img { opacity: 1; filter: grayscale(0%); transform: scale(1.15); }
+
+        /* 主 Logo 动画 */
+        .summit-logo {
+            max-width: 85%;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(0, 194, 255, 0.2));
+            transition: transform 0.5s ease;
+        }
+        @media (min-width: 768px) { .summit-logo { max-width: 600px; } }
     </style>
 </head>
 <body>
@@ -101,16 +110,17 @@
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-32 pb-20">
-        <div class="mb-6 inline-block px-4 py-1 border border-orange-500/30 rounded-full text-[10px] tracking-[0.3em] text-orange-400 uppercase font-bold animate-pulse">
+        <div class="mb-8 inline-block px-4 py-1 border border-orange-500/30 rounded-full text-[10px] tracking-[0.3em] text-orange-400 uppercase font-bold animate-pulse">
             <span data-i18n="hero-tag">Pattaya, Thailand · NICE Convention Center</span>
         </div>
         
-        <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-4 leading-[1.05] md:leading-none">
-            APAC<br><span class="abcd-gradient">SUMMIT</span><br>2026
-        </h1>
-        <span class="beyond-borders text-3xl md:text-6xl block mt-6 mb-12 font-black uppercase">BEYOND BORDERS</span>
+        <div class="mb-4">
+            <img src="abcd SUMMIT_Logo_C.png" alt="ABCD SUMMIT" class="summit-logo mx-auto">
+        </div>
 
-        <div class="mt-8 mb-16 flex gap-4 md:gap-14 justify-center items-end text-center">
+        <span class="beyond-borders text-2xl md:text-5xl block mt-4 mb-12 font-black uppercase">BEYOND BORDERS</span>
+
+        <div class="mt-4 mb-16 flex gap-4 md:gap-14 justify-center items-end text-center">
             <div class="flex flex-col"><span id="days" class="countdown-num abcd-gradient">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-days">Days</span></div>
             <div class="flex flex-col"><span id="hours" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-hours">Hours</span></div>
             <div class="flex flex-col"><span id="minutes" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-mins">Mins</span></div>
@@ -201,7 +211,6 @@
         }
         renderLogos(row1, set1); renderLogos(row2, set2);
 
-        // 修正为 2026 年 4 月 27 日
         const targetDate = new Date("April 27, 2026 09:00:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
