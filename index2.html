@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abcd | APAC BLOCKCHAIN SUMMIT 2026</title>
+    <title>abcd | APAC BLOCKCHAIN SUMMIT @ NICE PATTAYA</title>
     
     <link rel="icon" type="image/png" href="abcd_Logo_C.png">
     <link rel="apple-touch-icon" href="abcd_Logo_C.png">
@@ -40,14 +40,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
-        @media (min-width: 768px) {
-            .glass-card:hover {
-                border-color: rgba(255, 255, 255, 0.3);
-                background: rgba(255, 255, 255, 0.07);
-                transform: translateY(-5px);
-            }
-        }
-
         .countdown-num {
             font-size: 3.5rem;
             font-weight: 700;
@@ -56,9 +48,7 @@
         }
         @media (min-width: 768px) { .countdown-num { font-size: 5rem; } }
 
-        [data-lang]:not(.active) { display: none; }
-
-        /* --- 合作伙伴走马灯专属样式 --- */
+        /* 合作伙伴走马灯样式 */
         .marquee-container {
             position: relative;
             width: 100%;
@@ -76,7 +66,6 @@
         }
         .marquee-container::before { left: 0; background: linear-gradient(to right, #000, transparent); }
         .marquee-container::after { right: 0; background: linear-gradient(to left, #000, transparent); }
-
         .marquee-track {
             display: flex;
             width: max-content;
@@ -85,48 +74,11 @@
             animation: scroll 45s linear infinite;
         }
         .marquee-track.reverse { animation: scroll-reverse 45s linear infinite; }
-        .marquee-track:hover { animation-play-state: paused; }
-
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        @keyframes scroll-reverse {
-            from { transform: translateX(-50%); }
-            to { transform: translateX(0); }
-        }
-
-        .partner-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 140px;
-            height: 80px;
-            flex-shrink: 0;
-        }
-
-        .partner-img {
-            max-height: 50px;
-            max-width: 110px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            opacity: 0.4;
-            filter: grayscale(100%);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .partner-wrapper:hover .partner-img {
-            opacity: 1;
-            filter: grayscale(0%);
-            transform: scale(1.15);
-        }
-
-        @media (max-width: 768px) {
-            .partner-wrapper { width: 100px; height: 60px; }
-            .partner-img { max-height: 35px; max-width: 80px; }
-            .marquee-track { gap: 20px; }
-        }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes scroll-reverse { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+        .partner-wrapper { display: flex; align-items: center; justify-content: center; width: 140px; height: 80px; flex-shrink: 0; }
+        .partner-img { max-height: 50px; max-width: 110px; opacity: 0.4; filter: grayscale(100%); transition: 0.4s; }
+        .partner-wrapper:hover .partner-img { opacity: 1; filter: grayscale(0%); transform: scale(1.15); }
     </style>
 </head>
 <body>
@@ -137,73 +89,41 @@
 
     <nav class="fixed w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
         <div class="flex items-center">
-            <a href="/"><img src="abcd_Logo_C.png" alt="abcd Logo" class="h-6 md:h-8 w-auto hover:opacity-80 transition"></a>
+            <a href="/"><img src="abcd_Logo_C.png" alt="abcd Logo" class="h-6 md:h-8 w-auto"></a>
         </div>
         <div class="flex items-center gap-4 md:gap-8">
             <button onclick="toggleLanguage()" class="text-[10px] font-bold tracking-widest px-3 py-1 border border-white/10 rounded hover:bg-white/5 transition">
                 <span id="lang-toggle-text">EN / 中</span>
             </button>
-            <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest font-bold">
-                <a href="https://x.com/abcd_web3_" target="_blank" class="hover:text-indigo-400 transition">Twitter (X)</a>
-                <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Linktree</a>
-            </div>
-            <a href="https://linktr.ee/abcd.web3" target="_blank" class="px-5 py-2 bg-white text-black rounded-full text-[10px] font-bold hover:bg-white hover:text-black transition uppercase">
-                <span data-i18n="nav-community">Join Ecosystem</span>
+            <a href="https://linktr.ee/abcd.web3" target="_blank" class="px-5 py-2 bg-white text-black rounded-full text-[10px] font-bold hover:bg-white transition uppercase">
+                <span data-i18n="nav-community">Get Tickets</span>
             </a>
         </div>
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-32 pb-20">
         <div class="mb-6 inline-block px-4 py-1 border border-orange-500/30 rounded-full text-[10px] tracking-[0.3em] text-orange-400 uppercase font-bold animate-pulse">
-            <span data-i18n="hero-tag">Next Destination: Bangkok, Thailand</span>
+            <span data-i18n="hero-tag">Pattaya, Thailand · NICE Convention Center</span>
         </div>
         
         <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-4 leading-[1.05] md:leading-none">
-            APAC<br><span class="abcd-gradient">SUMMIT</span><br>2026
+            APAC<br><span class="abcd-gradient">SUMMIT</span><br>2027
         </h1>
-        <span class="beyond-borders text-3xl md:text-6xl block mt-6 mb-12 font-black uppercase">THE NEW FRONTIER</span>
+        <span class="beyond-borders text-3xl md:text-6xl block mt-6 mb-12 font-black uppercase">BEYOND BORDERS</span>
 
         <div class="mt-8 mb-16 flex gap-4 md:gap-14 justify-center items-end text-center">
-            <div class="flex flex-col">
-                <span id="days" class="countdown-num abcd-gradient">00</span>
-                <span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-days">Days</span>
-            </div>
+            <div class="flex flex-col"><span id="days" class="countdown-num abcd-gradient">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-days">Days</span></div>
             <div class="flex flex-col"><span id="hours" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-hours">Hours</span></div>
             <div class="flex flex-col"><span id="minutes" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-mins">Mins</span></div>
-            <div class="flex flex-col text-indigo-500/40"><span id="seconds" class="countdown-num">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold font-mono" data-i18n="count-secs">Secs</span></div>
+            <div class="flex flex-col text-indigo-500/40"><span id="seconds" class="countdown-num">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-secs">Secs</span></div>
         </div>
 
         <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto items-center">
-            <a href="https://luma.com/abcd-summit-thailand" target="_blank" class="w-full md:w-auto px-14 py-6 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_50px_rgba(255,255,255,0.25)] text-lg uppercase">
-                <span data-i18n="btn-reg">Book Your Slot</span>
+            <a href="#" class="w-full md:w-auto px-14 py-6 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_50px_rgba(255,255,255,0.25)] text-lg uppercase">
+                <span data-i18n="btn-reg">Book Now</span>
             </a>
             <div class="w-full md:w-auto px-10 py-6 glass-card rounded-full font-bold text-xs tracking-widest text-gray-300 uppercase">
-                <span data-i18n="event-date">NOVEMBER 2026 · BANGKOK</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #00C2FF;">A</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Adoption</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-a">Scaling digital asset adoption through institutional-grade solutions.</p>
-            </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #7000FF;">B</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Building</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-b">Building the next generation of decentralized finance in Thailand.</p>
-            </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF007A;">C</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Connection</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-c">Uniting global liquidity with APAC's most innovative builders.</p>
-            </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF9900;">D</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Discovery</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-d">Discovering the next alpha in the Southeast Asian tech boom.</p>
+                <span data-i18n="event-date">APRIL 27-28 · PATTAYA</span>
             </div>
         </div>
     </section>
@@ -211,7 +131,6 @@
     <section class="py-20 bg-black/50">
         <div class="text-center mb-12">
             <h2 class="text-2xl md:text-4xl font-bold uppercase tracking-widest abcd-gradient inline-block" data-i18n="partner-title">Summit Partners</h2>
-            <p class="text-gray-500 text-[10px] tracking-[0.4em] mt-2 uppercase font-bold" data-i18n="partner-subtitle">Uniting the Global Frontier</p>
         </div>
         <div class="marquee-container">
             <div class="marquee-track" id="row1"></div>
@@ -221,7 +140,7 @@
 
     <footer class="py-12 text-center border-t border-white/5 px-6">
         <p class="text-gray-600 text-[10px] tracking-widest uppercase font-bold" data-i18n="footer">
-            © 2026 ABCD SUMMIT. The Pinnacle of APAC Web3.
+            © 2027 ABCD SUMMIT. Nong Nooch International Convention and Exhibition Center.
         </p>
     </footer>
 
@@ -230,30 +149,22 @@
 
         const translations = {
             en: {
-                "nav-community": "Join Ecosystem", 
-                "hero-tag": "Next Destination: Bangkok, Thailand",
-                "btn-reg": "Book Your Slot",
+                "nav-community": "Get Tickets", 
+                "hero-tag": "Pattaya, Thailand · NICE Convention Center",
+                "btn-reg": "Book Now",
                 "count-days": "Days", "count-hours": "Hours", "count-mins": "Mins", "count-secs": "Secs",
-                "event-date": "NOVEMBER 2026 · BANGKOK",
-                "card-a": "Scaling digital asset adoption through institutional-grade solutions.",
-                "card-b": "Building the next generation of decentralized finance in Thailand.",
-                "card-c": "Uniting global liquidity with APAC's most innovative builders.",
-                "card-d": "Discovering the next alpha in the Southeast Asian tech boom.",
-                "partner-title": "Summit Partners", "partner-subtitle": "Uniting the Global Frontier",
-                "footer": "© 2026 ABCD SUMMIT. The Pinnacle of APAC Web3."
+                "event-date": "APRIL 27-28 · PATTAYA",
+                "partner-title": "Summit Partners",
+                "footer": "© 2027 ABCD SUMMIT. Nong Nooch International Convention and Exhibition Center (NICE)."
             },
             zh: {
-                "nav-community": "加入生态", 
-                "hero-tag": "下一站：泰国 · 曼谷",
+                "nav-community": "获取门票", 
+                "hero-tag": "泰国 · 芭提雅 · NICE 国际会展中心",
                 "btn-reg": "立即预定",
                 "count-days": "天", "count-hours": "时", "count-mins": "分", "count-secs": "秒",
-                "event-date": "2026年11月 · 泰国曼谷",
-                "card-a": "通过机构级解决方案推动数字资产的大规模应用。",
-                "card-b": "在泰国构建下一代去中心化金融生态系统。",
-                "card-c": "连接全球流动性与亚太地区最具创新力的开发者。",
-                "card-d": "在东南亚科技热潮中发掘下一个 Alpha 机会。",
-                "partner-title": "峰会合作伙伴", "partner-subtitle": "连接全球 · 筑梦未来",
-                "footer": "© 2026 ABCD SUMMIT. 亚太 Web3 巅峰盛会。"
+                "event-date": "4月27-28日 · 芭提雅",
+                "partner-title": "峰会合作伙伴",
+                "footer": "© 2027 ABCD SUMMIT. 芭提雅东芭乐园国际会议中心 (NICE)."
             }
         };
 
@@ -275,7 +186,7 @@
 
         applyLanguage(currentLang);
 
-        // 合作伙伴渲染
+        // 合作伙伴渲染逻辑（保持一致）
         const row1 = document.getElementById('row1');
         const row2 = document.getElementById('row2');
         const midpoint = Math.ceil(partners.length / 2);
@@ -283,19 +194,17 @@
         const set2 = partners.slice(midpoint);
 
         function renderLogos(container, data) {
-            const displayData = [...data, ...data, ...data, ...data]; 
+            const displayData = data.length > 0 ? [...data, ...data, ...data, ...data] : []; 
             container.innerHTML = displayData.map(p => `
                 <div class="partner-wrapper">
-                    <img src="${p.logo}" alt="${p.name}" class="partner-img" title="${p.type}: ${p.name}">
+                    <img src="${p.logo}" alt="${p.name}" class="partner-img">
                 </div>
             `).join('');
         }
-        
-        renderLogos(row1, set1);
-        renderLogos(row2, set2);
+        renderLogos(row1, set1); renderLogos(row2, set2);
 
-        // 倒计时逻辑：目标设定为 2026 年 11 月 1 日
-        const targetDate = new Date("November 1, 2026 09:00:00").getTime();
+        // 倒计时逻辑：目标 4月27日
+        const targetDate = new Date("April 27, 2027 09:00:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
@@ -305,8 +214,7 @@
             document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
             document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+        setInterval(updateCountdown, 1000); updateCountdown();
     </script>
 </body>
 </html>
