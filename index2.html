@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abcd | APAC BLOCKCHAIN SUMMIT 2026 @ NICE PATTAYA</title>
+    <title>abcd | APAC BLOCKCHAIN DAY SUMMIT 2026</title>
     
     <link rel="icon" type="image/png" href="abcd_Logo_C.png">
     <link rel="apple-touch-icon" href="abcd_Logo_C.png">
@@ -22,18 +22,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .beyond-borders {
-            letter-spacing: 0.4em;
-            background: linear-gradient(to right, #fff 20%, #666 50%, #fff 80%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s linear infinite;
-            line-height: 1.2;
-        }
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
@@ -48,6 +36,7 @@
         }
         @media (min-width: 768px) { .countdown-num { font-size: 5rem; } }
 
+        /* 合作伙伴走马灯 */
         .marquee-container {
             position: relative;
             width: 100%;
@@ -79,14 +68,13 @@
         .partner-img { max-height: 50px; max-width: 110px; opacity: 0.4; filter: grayscale(100%); transition: 0.4s; }
         .partner-wrapper:hover .partner-img { opacity: 1; filter: grayscale(0%); transform: scale(1.15); }
 
-        /* 主 Logo 动画 */
+        /* 主 Logo 样式 */
         .summit-logo {
             max-width: 85%;
             height: auto;
-            filter: drop-shadow(0 0 30px rgba(0, 194, 255, 0.2));
-            transition: transform 0.5s ease;
+            filter: drop-shadow(0 0 35px rgba(0, 194, 255, 0.25));
         }
-        @media (min-width: 768px) { .summit-logo { max-width: 600px; } }
+        @media (min-width: 768px) { .summit-logo { max-width: 650px; } }
     </style>
 </head>
 <body>
@@ -110,17 +98,15 @@
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-32 pb-20">
-        <div class="mb-8 inline-block px-4 py-1 border border-orange-500/30 rounded-full text-[10px] tracking-[0.3em] text-orange-400 uppercase font-bold animate-pulse">
-            <span data-i18n="hero-tag">Pattaya, Thailand · NICE Convention Center</span>
+        <div class="mb-10 inline-block px-5 py-1.5 border border-orange-500/30 rounded-full text-[10px] md:text-xs tracking-[0.3em] text-orange-400 uppercase font-bold animate-pulse">
+            <span data-i18n="hero-tag">NICE CONVENTION CENTER . PATTAYA, THAILAND</span>
         </div>
         
-        <div class="mb-4">
+        <div class="mb-16">
             <img src="abcd SUMMIT_Logo_C.png" alt="ABCD SUMMIT" class="summit-logo mx-auto">
         </div>
 
-        <span class="beyond-borders text-2xl md:text-5xl block mt-4 mb-12 font-black uppercase">BEYOND BORDERS</span>
-
-        <div class="mt-4 mb-16 flex gap-4 md:gap-14 justify-center items-end text-center">
+        <div class="mb-20 flex gap-4 md:gap-14 justify-center items-end text-center">
             <div class="flex flex-col"><span id="days" class="countdown-num abcd-gradient">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-days">Days</span></div>
             <div class="flex flex-col"><span id="hours" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-hours">Hours</span></div>
             <div class="flex flex-col"><span id="minutes" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-mins">Mins</span></div>
@@ -132,7 +118,7 @@
                 <span data-i18n="btn-reg">Register NOW</span>
             </a>
             <div class="w-full md:w-auto px-10 py-6 glass-card rounded-full font-bold text-xs tracking-widest text-gray-300 uppercase">
-                <span data-i18n="event-date">APRIL 27-28 · PATTAYA</span>
+                <span data-i18n="event-date">APRIL 27-28 · 2026</span>
             </div>
         </div>
     </section>
@@ -149,7 +135,7 @@
 
     <footer class="py-12 text-center border-t border-white/5 px-6">
         <p class="text-gray-600 text-[10px] tracking-widest uppercase font-bold" data-i18n="footer">
-            © 2026 ABCD SUMMIT. Nong Nooch International Convention and Exhibition Center.
+            © 2026 ABCD SUMMIT. Nong Nooch International Convention and Exhibition Center (NICE).
         </p>
     </footer>
 
@@ -159,19 +145,19 @@
         const translations = {
             en: {
                 "nav-community": "Register NOW", 
-                "hero-tag": "Pattaya, Thailand · NICE Convention Center",
+                "hero-tag": "NICE CONVENTION CENTER . PATTAYA, THAILAND",
                 "btn-reg": "Register NOW",
                 "count-days": "Days", "count-hours": "Hours", "count-mins": "Mins", "count-secs": "Secs",
-                "event-date": "APRIL 27-28 · PATTAYA",
+                "event-date": "APRIL 27-28 · 2026",
                 "partner-title": "Summit Partners",
                 "footer": "© 2026 ABCD SUMMIT. Nong Nooch International Convention and Exhibition Center (NICE)."
             },
             zh: {
                 "nav-community": "立即报名", 
-                "hero-tag": "泰国 · 芭提雅 · NICE 国际会展中心",
+                "hero-tag": "NICE 国际会展中心 . 泰国 · 芭提雅",
                 "btn-reg": "立即报名",
                 "count-days": "天", "count-hours": "时", "count-mins": "分", "count-secs": "秒",
-                "event-date": "4月27-28日 · 芭提雅",
+                "event-date": "2026年 4月27-28日",
                 "partner-title": "峰会合作伙伴",
                 "footer": "© 2026 ABCD SUMMIT. 芭提雅东芭乐园国际会议中心 (NICE)."
             }
@@ -211,6 +197,7 @@
         }
         renderLogos(row1, set1); renderLogos(row2, set2);
 
+        // 目标时间：2026 年 4 月 27 日
         const targetDate = new Date("April 27, 2026 09:00:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
