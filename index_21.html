@@ -39,9 +39,10 @@
             border-radius: 20px;
         }
 
-        /* 优化三：三列走马灯样式 */
+        /* 优化三：三列走马灯保持比例 */
         .marquee-container { position: relative; width: 100%; overflow: hidden; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.05); }
-        .marquee-track { display: flex; width: max-content; gap: 60px; padding: 15px 0; }
+        .marquee-track { display: flex; width: max-content; gap: 40px; padding: 10px 0; }
+        @media (min-width: 768px) { .marquee-track { gap: 60px; padding: 15px 0; } }
         
         .scroll-left { animation: scrollLeft 50s linear infinite; }
         .scroll-right { animation: scrollRight 50s linear infinite; }
@@ -49,7 +50,8 @@
         @keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         @keyframes scrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
-        .partner-img { height: 30px; width: auto; opacity: 0.4; filter: grayscale(100%); transition: 0.3s; }
+        .partner-img { height: 25px; width: auto; opacity: 0.4; filter: grayscale(100%); transition: 0.3s; object-fit: contain; }
+        @media (min-width: 768px) { .partner-img { height: 35px; } }
         .partner-img:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
 
         [data-lang]:not(.active) { display: none; }
@@ -70,7 +72,7 @@
         </video>
         
         <nav class="fixed top-0 w-full p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
-            <img src="abcd_Logo_C.png" class="h-8 w-auto">
+            <img src="abcd_Logo_C.png" class="h-6 md:h-8 w-auto object-contain">
             <div class="hidden lg:flex gap-8 text-[10px] uppercase tracking-widest">
                 <a href="#" class="nav-link">Home</a>
                 <a href="#summit" class="nav-link">The Summit</a>
@@ -86,18 +88,19 @@
         </nav>
 
         <div class="relative z-10 text-center px-6 w-full max-w-7xl">
-            <!-- 优化一：巨大的Logo -->
-            <div class="mb-12 flex justify-center">
-                <img src="abcd_Logo_C.png" class="h-48 md:h-64 w-auto drop-shadow-[0_0_35px_rgba(112,0,255,0.3)]">
+            <!-- 优化一：修复Logo手机端变形 -->
+            <div class="mb-8 md:mb-12 flex justify-center">
+                <img src="abcd_Logo_C.png" class="h-32 md:h-64 w-auto object-contain drop-shadow-[0_0_35px_rgba(112,0,255,0.3)]">
             </div>
 
-            <!-- 优化二：最大化的Sub-headline呈现 -->
-            <h2 class="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-12" data-i18n="hero-sub">
+            <!-- 优化二：响应式Tagline尺寸 -->
+            <h2 class="text-3xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-tight mb-8" data-i18n="hero-sub">
                 LEAD THE VIBE, <br class="hidden md:block"> LINK THE WORLD.
             </h2>
             
-            <p class="max-w-3xl mx-auto text-xs md:text-lg text-gray-400 font-bold mb-12 tracking-widest uppercase" data-i18n="hero-desc">
-                The Hub of APAC Web3 Ecosystem.
+            <!-- 优化三：补全Sub-headline -->
+            <p class="max-w-4xl mx-auto text-xs md:text-xl text-gray-300 font-bold mb-12 tracking-wide md:tracking-widest uppercase leading-relaxed" data-i18n="hero-desc">
+                The Hub of APAC Web3 Ecosystem. We don't just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.
             </p>
 
             <div class="flex flex-col md:flex-row gap-4 justify-center">
@@ -107,6 +110,7 @@
         </div>
     </header>
 
+    <!-- Section 2: Dual Track -->
     <section id="summit" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="track-card glass-panel p-10 rounded-[3rem] relative overflow-hidden group">
@@ -124,13 +128,14 @@
                 <div class="mb-6 inline-block px-4 py-1 border border-purple-500 text-purple-500 text-[10px] font-bold uppercase rounded-full">500 Pax Boutique</div>
                 <h2 class="text-4xl font-bold mb-4">abcd Bespoke</h2>
                 <p class="text-gray-400 font-light leading-relaxed mb-8" data-i18n="bespoke-desc">
-                    Tailor-made for strategic partners.沉浸式社交场景设计 (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.
+                    Tailor-made for strategic partners. 沉浸式社交场景设计 (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.
                 </p>
                 <div class="text-xs tracking-widest font-bold uppercase text-purple-400 underline">Deeply Customized IP</div>
             </div>
         </div>
     </section>
 
+    <!-- Section 3: Values -->
     <section class="py-20 bg-white/5 border-y border-white/5 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div class="flex flex-col items-center">
@@ -186,6 +191,7 @@
         </div>
     </section>
 
+    <!-- Archives -->
     <section id="archives" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center">Event <span class="abcd-gradient">Archives</span></h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -234,17 +240,13 @@
         </div>
     </section>
 
-    <!-- 优化三：三列走马灯矩阵 -->
+    <!-- 三列走马灯矩阵 -->
     <section class="marquee-container bg-black/40 py-10">
-        <div class="text-center mb-10">
+        <div class="text-center mb-8">
             <h4 class="text-[10px] tracking-[0.5em] uppercase text-white/30 font-bold">Ecosystem Partners</h4>
         </div>
-        
-        <!-- Row 1 -->
         <div class="marquee-track scroll-left" id="row-1"></div>
-        <!-- Row 2 -->
         <div class="marquee-track scroll-right" id="row-2"></div>
-        <!-- Row 3 -->
         <div class="marquee-track scroll-left" id="row-3"></div>
     </section>
 
@@ -255,7 +257,6 @@
     <script type="module">
         import { partners } from './partnersData.js';
         
-        // 优化三：合作伙伴三列渲染逻辑
         function renderMarquee() {
             const rows = [
                 document.getElementById('row-1'),
@@ -265,13 +266,11 @@
 
             if (!partners) return;
 
-            // 将合作伙伴均分到三行
             const perRow = Math.ceil(partners.length / 3);
             
             rows.forEach((row, index) => {
                 const start = index * perRow;
                 const rowData = partners.slice(start, start + perRow);
-                // 无缝循环补位
                 const doubleData = [...rowData, ...rowData, ...rowData, ...rowData]; 
                 row.innerHTML = doubleData.map(p => `<img src="${p.logo}" class="partner-img" alt="${p.name}">`).join('');
             });
@@ -280,14 +279,14 @@
         const translations = {
             en: {
                 "hero-sub": "LEAD THE VIBE, <br> LINK THE WORLD.",
-                "hero-desc": "The Hub of APAC Web3 Ecosystem.",
+                "hero-desc": "The Hub of APAC Web3 Ecosystem. We don't just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.",
                 "summit-desc": "The industry bellwether. An annual flagship exhibition summit. Bringing together global brains, top VCs, and industry leaders with pitch roadshows, high-density roundtables, and cross-border vibes.",
-                "bespoke-desc": "Tailor-made for strategic partners.沉浸式社交场景设计 (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.",
+                "bespoke-desc": "Tailor-made for strategic partners. 沉浸式社交场景设计 (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.",
                 "attend-btn": "I want to attend the next event", "bespoke-btn": "Inquiry for Bespoke Event"
             },
             zh: {
                 "hero-sub": "引领行业氛围, <br> 连接全球世界。",
-                "hero-desc": "亚太 WEB3 生态枢纽。",
+                "hero-desc": "亚太 Web3 生态枢纽。我们不只是举办活动，我们通过旗舰峰会和定制体验，引领行业氛围并连接世界。",
                 "summit-desc": "行业风向标。年度旗舰展览型峰会。汇聚全球智脑、顶尖 VC、行业领袖，结合项目路演、高密度圆桌及跨界场景。",
                 "bespoke-desc": "为战略合作伙伴量身打造。场景化营销 (旅游、支付、RWA 等)。精准触达垂直圈层，将 Web3 深度融入生活方式。",
                 "attend-btn": "我想参加下一场活动", "bespoke-btn": "我想为品牌定制专属活动"
@@ -306,7 +305,6 @@
         
         window.toggleLanguage = () => { currentLang = currentLang === 'en' ? 'zh' : 'en'; applyLanguage(currentLang); };
         
-        // 执行
         renderMarquee();
         applyLanguage(currentLang);
     </script>
