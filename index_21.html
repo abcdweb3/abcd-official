@@ -7,24 +7,13 @@
     <link rel="icon" type="image/png" href="abcd_Logo_C.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700;900&display=swap');
         body { font-family: 'Space Grotesk', sans-serif; background-color: #000; color: white; overflow-x: hidden; }
         
         .neon-gradient {
             background: linear-gradient(90deg, #00C2FF 0%, #7000FF 30%, #FF007A 70%, #FF9900 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        /* 优化二：霓虹灯效果 */
-        .neon-vibe {
-            color: #fff;
-            text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #7000FF, 0 0 82px #7000FF;
-            animation: breathe 2s infinite alternate;
-        }
-        @keyframes breathe {
-            from { opacity: 0.8; text-shadow: 0 0 10px #7000FF; }
-            to { opacity: 1; text-shadow: 0 0 20px #00C2FF, 0 0 30px #7000FF; }
         }
 
         .hero-video-bg {
@@ -50,11 +39,17 @@
             border-radius: 20px;
         }
 
-        /* 优化三：合作伙伴走马灯样式 */
-        .marquee-container { position: relative; width: 100%; overflow: hidden; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); }
-        .marquee-track { display: flex; width: max-content; gap: 60px; animation: scroll 40s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .partner-img { height: 35px; width: auto; opacity: 0.4; filter: grayscale(100%); transition: 0.3s; }
+        /* 优化三：三列走马灯样式 */
+        .marquee-container { position: relative; width: 100%; overflow: hidden; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+        .marquee-track { display: flex; width: max-content; gap: 60px; padding: 15px 0; }
+        
+        .scroll-left { animation: scrollLeft 50s linear infinite; }
+        .scroll-right { animation: scrollRight 50s linear infinite; }
+        
+        @keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes scrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+        .partner-img { height: 30px; width: auto; opacity: 0.4; filter: grayscale(100%); transition: 0.3s; }
         .partner-img:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
 
         [data-lang]:not(.active) { display: none; }
@@ -90,17 +85,19 @@
             </div>
         </nav>
 
-        <div class="relative z-10 text-center px-6">
-            <div class="mb-4 text-xs md:text-sm tracking-[0.5em] uppercase text-white/60 font-bold">Lead the Vibe, Link the World.</div>
-            
-            <!-- 优化二：用Logo取代文字标题 -->
-            <div class="mb-8 flex justify-center">
-                <img src="abcd_Logo_C.png" class="h-16 md:h-28 w-auto">
+        <div class="relative z-10 text-center px-6 w-full max-w-7xl">
+            <!-- 优化一：巨大的Logo -->
+            <div class="mb-12 flex justify-center">
+                <img src="abcd_Logo_C.png" class="h-48 md:h-64 w-auto drop-shadow-[0_0_35px_rgba(112,0,255,0.3)]">
             </div>
 
-            <!-- 优化二：霓虹灯效果文案 -->
-            <p class="max-w-2xl mx-auto text-sm md:text-xl neon-vibe font-bold leading-relaxed mb-10" data-i18n="hero-sub">
-                The Hub of APAC Web3 Ecosystem. We don’t just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.
+            <!-- 优化二：最大化的Sub-headline呈现 -->
+            <h2 class="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-12" data-i18n="hero-sub">
+                LEAD THE VIBE, <br class="hidden md:block"> LINK THE WORLD.
+            </h2>
+            
+            <p class="max-w-3xl mx-auto text-xs md:text-lg text-gray-400 font-bold mb-12 tracking-widest uppercase" data-i18n="hero-desc">
+                The Hub of APAC Web3 Ecosystem.
             </p>
 
             <div class="flex flex-col md:flex-row gap-4 justify-center">
@@ -154,11 +151,10 @@
         </div>
     </section>
 
-    <!-- 优化一：Team Section -->
+    <!-- Team Section -->
     <section id="team" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl md:text-5xl font-black mb-16 text-center tracking-tighter uppercase">The <span class="neon-gradient">Alliance</span> Behind abcd</h2>
+        <h2 class="text-3xl md:text-5xl font-black mb-16 text-center tracking-tighter uppercase text-white/50">Core Alliance</h2>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <!-- OTG -->
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-cyan-500/50">
                 <h3 class="text-xl font-black text-cyan-400 mb-4">OTG</h3>
                 <div class="space-y-4">
@@ -166,7 +162,6 @@
                     <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Co-founder</p><p class="text-lg">0xJasmine</p></div>
                 </div>
             </div>
-            <!-- CH90 -->
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-purple-500/50">
                 <h3 class="text-xl font-black text-purple-400 mb-4">CH90</h3>
                 <div class="space-y-4">
@@ -174,7 +169,6 @@
                     <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Co-founder</p><p class="text-lg">Ben</p></div>
                 </div>
             </div>
-            <!-- MOONX -->
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-pink-500/50">
                 <h3 class="text-xl font-black text-pink-400 mb-4">MOONX</h3>
                 <div class="space-y-4">
@@ -182,7 +176,6 @@
                     <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Co-founder</p><p class="text-lg">YS</p></div>
                 </div>
             </div>
-            <!-- CRM -->
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-orange-500/50">
                 <h3 class="text-xl font-black text-orange-400 mb-4">CRM</h3>
                 <div class="space-y-4">
@@ -241,14 +234,18 @@
         </div>
     </section>
 
-    <!-- 优化三：展示 Ecosystem Partner Logo 底部 -->
-    <section class="marquee-container bg-black/40">
-        <div class="text-center mb-8">
-            <h4 class="text-[10px] tracking-[0.4em] uppercase text-white/40 font-bold">Ecosystem Partners</h4>
+    <!-- 优化三：三列走马灯矩阵 -->
+    <section class="marquee-container bg-black/40 py-10">
+        <div class="text-center mb-10">
+            <h4 class="text-[10px] tracking-[0.5em] uppercase text-white/30 font-bold">Ecosystem Partners</h4>
         </div>
-        <div class="marquee-track" id="partner-row">
-            <!-- JS 自动填充 -->
-        </div>
+        
+        <!-- Row 1 -->
+        <div class="marquee-track scroll-left" id="row-1"></div>
+        <!-- Row 2 -->
+        <div class="marquee-track scroll-right" id="row-2"></div>
+        <!-- Row 3 -->
+        <div class="marquee-track scroll-left" id="row-3"></div>
     </section>
 
     <footer class="py-12 border-t border-white/5 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em] font-bold">
@@ -257,21 +254,40 @@
 
     <script type="module">
         import { partners } from './partnersData.js';
-        const partnerRow = document.getElementById('partner-row');
-        if (partnerRow && partners) {
-            const doubleData = [...partners, ...partners]; 
-            partnerRow.innerHTML = doubleData.map(p => `<img src="${p.logo}" class="partner-img" alt="${p.name}">`).join('');
+        
+        // 优化三：合作伙伴三列渲染逻辑
+        function renderMarquee() {
+            const rows = [
+                document.getElementById('row-1'),
+                document.getElementById('row-2'),
+                document.getElementById('row-3')
+            ];
+
+            if (!partners) return;
+
+            // 将合作伙伴均分到三行
+            const perRow = Math.ceil(partners.length / 3);
+            
+            rows.forEach((row, index) => {
+                const start = index * perRow;
+                const rowData = partners.slice(start, start + perRow);
+                // 无缝循环补位
+                const doubleData = [...rowData, ...rowData, ...rowData, ...rowData]; 
+                row.innerHTML = doubleData.map(p => `<img src="${p.logo}" class="partner-img" alt="${p.name}">`).join('');
+            });
         }
 
         const translations = {
             en: {
-                "hero-sub": "The Hub of APAC Web3 Ecosystem. We don’t just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.",
+                "hero-sub": "LEAD THE VIBE, <br> LINK THE WORLD.",
+                "hero-desc": "The Hub of APAC Web3 Ecosystem.",
                 "summit-desc": "The industry bellwether. An annual flagship exhibition summit. Bringing together global brains, top VCs, and industry leaders with pitch roadshows, high-density roundtables, and cross-border vibes.",
                 "bespoke-desc": "Tailor-made for strategic partners.沉浸式社交场景设计 (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.",
                 "attend-btn": "I want to attend the next event", "bespoke-btn": "Inquiry for Bespoke Event"
             },
             zh: {
-                "hero-sub": "亚太 Web3 生态中心。我们不只是举办活动，我们通过旗舰峰会和定制体验，引领行业氛围并连接世界。",
+                "hero-sub": "引领行业氛围, <br> 连接全球世界。",
+                "hero-desc": "亚太 WEB3 生态枢纽。",
                 "summit-desc": "行业风向标。年度旗舰展览型峰会。汇聚全球智脑、顶尖 VC、行业领袖，结合项目路演、高密度圆桌及跨界场景。",
                 "bespoke-desc": "为战略合作伙伴量身打造。场景化营销 (旅游、支付、RWA 等)。精准触达垂直圈层，将 Web3 深度融入生活方式。",
                 "attend-btn": "我想参加下一场活动", "bespoke-btn": "我想为品牌定制专属活动"
@@ -282,12 +298,16 @@
         function applyLanguage(lang) {
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if(translations[lang][key]) el.innerText = translations[lang][key];
+                if(translations[lang][key]) el.innerHTML = translations[lang][key];
             });
             document.getElementById('lang-toggle-text').innerText = lang === 'en' ? 'EN / 中' : '中 / EN';
             localStorage.setItem('abcd-lang', lang);
         }
+        
         window.toggleLanguage = () => { currentLang = currentLang === 'en' ? 'zh' : 'en'; applyLanguage(currentLang); };
+        
+        // 执行
+        renderMarquee();
         applyLanguage(currentLang);
     </script>
 </body>
