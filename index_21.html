@@ -16,12 +16,11 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 优化：平衡亮度，让视频可见同时保证文字清晰度 */
         .hero-video-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; z-index: -1; 
-            opacity: 0.45; /* 提升可见度 */
-            filter: saturate(1.1) brightness(0.7); /* 适度平衡亮度 */
+            opacity: 0.45;
+            filter: saturate(1.1) brightness(0.7);
         }
 
         .glass-panel {
@@ -69,7 +68,6 @@
 <body>
 
     <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- 调低遮罩浓度，释放更多视频光影 -->
         <div class="absolute inset-0 bg-black/40 z-0"></div>
         <video autoplay muted loop playsinline class="hero-video-bg">
             <source src="https://www.web3festival.org/hongkong2026/files/banner_video3.mp4" type="video/mp4">
@@ -94,17 +92,14 @@
         </nav>
 
         <div class="relative z-10 text-center px-6 w-full max-w-7xl">
-            <!-- Tagline 加入文字阴影 -->
             <div class="mb-4 text-xs md:text-sm tracking-[0.4em] md:tracking-[0.6em] uppercase text-white/90 font-black drop-shadow-lg" data-i18n="hero-tag">
                 LEAD THE VIBE, LINK THE WORLD.
             </div>
 
-            <!-- Huge Logo -->
             <div class="mb-8 md:mb-12 flex justify-center">
                 <img src="abcd_Logo_C.png" class="h-32 md:h-64 w-auto object-contain drop-shadow-[0_10px_50px_rgba(0,0,0,0.8)]">
             </div>
             
-            <!-- Sub-headline 提升亮度并加入投影 -->
             <p class="max-w-4xl mx-auto text-base md:text-2xl text-white font-black mb-12 leading-relaxed drop-shadow-2xl" data-i18n="hero-desc">
                 The Hub of APAC Web3 Ecosystem. We don't just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.
             </p>
@@ -167,57 +162,101 @@
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-cyan-500/50">
                 <h3 class="text-xl font-black text-cyan-400 mb-4">OTG</h3>
                 <div class="space-y-4">
-                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-chairman">Chairman / Founder</p><p class="text-lg font-black">mrone.eth</p></div>
-                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">0xJasmine</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-chairman">Chairman / Founder</p><p class="text-lg font-black">mrone.eth</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">0xJasmine</p></div>
                 </div>
             </div>
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-purple-500/50">
                 <h3 class="text-xl font-black text-purple-400 mb-4">CH90</h3>
                 <div class="space-y-4">
-                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-founder">Founder</p><p class="text-lg font-black">Ada</p></div>
-                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">Ben</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-founder">Founder</p><p class="text-lg font-black">Ada</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">Ben</p></div>
                 </div>
             </div>
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-pink-500/50">
                 <h3 class="text-xl font-black text-pink-400 mb-4">MOONX</h3>
                 <div class="space-y-4">
-                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-founder">Founder</p><p class="text-lg font-black">Alvin</p></div>
-                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">YS</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-founder">Founder</p><p class="text-lg font-black">Alvin</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">YS</p></div>
                 </div>
             </div>
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-orange-500/50">
                 <h3 class="text-xl font-black text-orange-400 mb-4">CRM</h3>
                 <div class="space-y-4">
-                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-vice">Vice Chairman / Founder</p><p class="text-lg font-black">Kxi</p></div>
-                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">Andrew, Yanzii</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-vice">Vice Chairman / Founder</p><p class="text-lg font-black">Kxi</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">Andrew, Yanzii</p></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 优化：Event Archives 扩展至8个活动 -->
     <section id="archives" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-black mb-12 uppercase tracking-widest text-center" data-i18n="archives-title">Event <span class="abcd-gradient">Archives</span></h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center" data-i18n="archives-title">Event <span class="abcd-gradient">Archives</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- 1. UTON -->
             <div class="glass-panel p-4 rounded-3xl group">
-                <div class="h-48 rounded-2xl bg-gradient-to-br from-indigo-900 to-black mb-4 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="h-40 rounded-2xl bg-gradient-to-br from-indigo-900 to-black mb-4 overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-white/20 text-4xl font-black">UTON</div>
                 </div>
-                <h5 class="font-black">abcd Summit 2026 (Pattaya)</h5>
-                <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest" data-i18n="arch-1">Our First 1000+ Scale Exhibition</p>
+                <h5 class="font-black text-sm" data-i18n="arch-uton">UTON : Bringing Web3 to Life by abcd</h5>
+                <p class="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Kuala Lumpur, Malaysia</p>
             </div>
-            <div class="glass-panel p-4 rounded-3xl group">
-                <div class="h-48 rounded-2xl bg-gradient-to-br from-purple-900 to-black mb-4 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <!-- 2. Summit 2026 -->
+            <div class="glass-panel p-4 rounded-3xl group border-indigo-500/30">
+                <div class="h-40 rounded-2xl bg-gradient-to-br from-purple-900 to-black mb-4 overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-white/20 text-4xl font-black">SUMMIT</div>
                 </div>
-                <h5 class="font-black">abcd: Beyond Borders</h5>
-                <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest" data-i18n="arch-2">Cross-border Nomad Series</p>
+                <h5 class="font-black text-sm" data-i18n="arch-summit26">abcd Summit 2026</h5>
+                <p class="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Pattaya, Thailand</p>
             </div>
+            <!-- 3. Beyond Borders -->
             <div class="glass-panel p-4 rounded-3xl group">
-                <div class="h-48 rounded-2xl bg-gradient-to-br from-pink-900 to-black mb-4 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="h-40 rounded-2xl bg-gradient-to-br from-cyan-900 to-black mb-4 overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-white/20 text-4xl font-black">BEYOND</div>
                 </div>
-                <h5 class="font-black">PizzaFi / Music Party</h5>
-                <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest" data-i18n="arch-3">High-sticky Community Meetups</p>
+                <h5 class="font-black text-sm" data-i18n="arch-beyond">abcd : Beyond Borders</h5>
+                <p class="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Kuala Lumpur, Malaysia</p>
+            </div>
+            <!-- 4. BGBeyond -->
+            <div class="glass-panel p-4 rounded-3xl group">
+                <div class="h-40 rounded-2xl bg-gradient-to-br from-orange-900 to-black mb-4 overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-white/20 text-4xl font-black">CARNIVAL</div>
+                </div>
+                <h5 class="font-black text-sm" data-i18n="arch-carnival">BGBeyond Web3 Carnival</h5>
+                <p class="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Kuala Lumpur, Malaysia</p>
+            </div>
+            <!-- 5. Bloc.KK -->
+            <div class="glass-panel p-4 rounded-3xl group border-orange-500/30">
+                <div class="h-40 rounded-2xl bg-gradient-to-br from-yellow-900 to-black mb-4 overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-white/20 text-4xl font-black">Bloc.KK</div>
+                </div>
+                <h5 class="font-black text-sm" data-i18n="arch-blockk">Bloc.KK Thailand : Café Crypto Future Brews</h5>
+                <p class="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Bangkok, Thailand</p>
+            </div>
+            <!-- 6. GIVE Protocol -->
+            <div class="glass-panel p-4 rounded-3xl group">
+                <div class="h-40 rounded-2xl bg-gradient-to-br from-green-900 to-black mb-4 overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-white/20 text-4xl font-black">GIVE</div>
+                </div>
+                <h5 class="font-black text-sm" data-i18n="arch-give">GIVE Protocol - First Community Meetup</h5>
+                <p class="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Kuala Lumpur, Malaysia</p>
+            </div>
+            <!-- 7. Music Party -->
+            <div class="glass-panel p-4 rounded-3xl group">
+                <div class="h-40 rounded-2xl bg-gradient-to-br from-pink-900 to-black mb-4 overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-white/20 text-4xl font-black">MUSIC</div>
+                </div>
+                <h5 class="font-black text-sm" data-i18n="arch-music">abcd : Music Party</h5>
+                <p class="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Kuala Lumpur, Malaysia</p>
+            </div>
+            <!-- 8. PizzaFi -->
+            <div class="glass-panel p-4 rounded-3xl group">
+                <div class="h-40 rounded-2xl bg-gradient-to-br from-red-900 to-black mb-4 overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-white/20 text-4xl font-black">PIZZA</div>
+                </div>
+                <h5 class="font-black text-sm" data-i18n="arch-pizza">abcd : PizzaFi</h5>
+                <p class="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Global Ecosystem</p>
             </div>
         </div>
     </section>
@@ -283,7 +322,15 @@
                 "bespoke-tag": "Deeply Customized IP",
                 "value-1": "Powerful industry network and high-quality deal-flow access.", "value-2": "Endorsed by SEA government officials with on-site presence.", "value-3": "Shaping immersive Web3 lifestyle and cultural vibes.",
                 "team-title": "Core Alliance", "role-chairman": "Chairman / Founder", "role-founder": "Founder", "role-cofounder": "Co-founder", "role-vice": "Vice Chairman / Founder",
-                "archives-title": "Event Archives", "arch-1": "Our First 1000+ Scale Exhibition", "arch-2": "Cross-border Nomad Series", "arch-3": "High-sticky Community Meetups",
+                "archives-title": "Event Archives",
+                "arch-uton": "UTON : Bringing Web3 to Life by abcd",
+                "arch-summit26": "abcd Summit 2026 (Pattaya)",
+                "arch-beyond": "abcd : Beyond Borders",
+                "arch-carnival": "BGBeyond Web3 Carnival",
+                "arch-blockk": "Bloc.KK Thailand : Café Crypto Future Brews",
+                "arch-give": "GIVE Protocol - First Community Meetup",
+                "arch-music": "abcd : Music Party",
+                "arch-pizza": "abcd : PizzaFi",
                 "join-title": "Join the Ecosystem", "join-desc": "Don't just attend. Be part of the vibe that shapes the APAC Web3 landscape.",
                 "attend-btn": "I want to attend the next event", "attend-sub": "Get your ticket for the upcoming series",
                 "bespoke-btn": "Inquiry for Bespoke Event", "bespoke-sub": "Customized branding & networking experience",
@@ -300,7 +347,15 @@
                 "bespoke-tag": "深度定制专题 IP",
                 "value-1": "强大的行业人脉与优质的项目流资源。", "value-2": "东南亚在地政府官员到场支持与背书。", "value-3": "极强的场景塑造力，将 Web3 融入生活方式。",
                 "team-title": "核心联盟", "role-chairman": "主席 / 创始人", "role-founder": "创始人", "role-cofounder": "联合创始人", "role-vice": "副主席 / 创始人",
-                "archives-title": "活动回顾", "arch-1": "首场千人规模大展", "arch-2": "跨界数字游民系列", "arch-3": "高粘性垂直社区聚会",
+                "archives-title": "活动回顾",
+                "arch-uton": "UTON : Bringing Web3 to Life by abcd (吉隆坡)",
+                "arch-summit26": "abcd Summit 2026 (芭提雅)",
+                "arch-beyond": "abcd : Beyond Borders (吉隆坡)",
+                "arch-carnival": "BGBeyond Web3 狂欢嘉年华 (吉隆坡)",
+                "arch-blockk": "Bloc.KK 泰国 : 加密咖啡·未来愿景 (曼谷)",
+                "arch-give": "GIVE Protocol - 首场社区见面会 (吉隆坡)",
+                "arch-music": "abcd : 音乐派对 (吉隆坡)",
+                "arch-pizza": "abcd : PizzaFi 社区活动",
                 "join-title": "加入我们生态", "join-desc": "不只是参会。与我们一起引领并塑造亚太 Web3 行业的未来。",
                 "attend-btn": "我想参加下一场活动", "attend-sub": "获取即将举行的系列活动门票",
                 "bespoke-btn": "为我的品牌定制专属活动", "bespoke-sub": "定制化品牌推广与人脉社交体验",
@@ -314,7 +369,6 @@
                 const key = el.getAttribute('data-i18n');
                 if(translations[lang][key]) el.innerHTML = translations[lang][key];
             });
-            document.getElementById('lang-toggle-text').innerText = lang === 'en' ? 'EN / 中' : '中 / EN';
             localStorage.setItem('abcd-lang', lang);
         }
         window.toggleLanguage = () => { currentLang = currentLang === 'en' ? 'zh' : 'en'; applyLanguage(currentLang); };
