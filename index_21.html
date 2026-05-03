@@ -16,12 +16,12 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 优化：更暗且深邃的背景视频设置 */
+        /* 优化：平衡亮度，让视频可见同时保证文字清晰度 */
         .hero-video-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; z-index: -1; 
-            opacity: 0.2; /* 调低透明度 */
-            filter: saturate(1.2) brightness(0.5) contrast(1.2); /* 降低亮度 */
+            opacity: 0.45; /* 提升可见度 */
+            filter: saturate(1.1) brightness(0.7); /* 适度平衡亮度 */
         }
 
         .glass-panel {
@@ -69,15 +69,15 @@
 <body>
 
     <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- 背景层增强：叠加黑色遮罩确保易读性 -->
-        <div class="absolute inset-0 bg-black/60 z-0"></div>
+        <!-- 调低遮罩浓度，释放更多视频光影 -->
+        <div class="absolute inset-0 bg-black/40 z-0"></div>
         <video autoplay muted loop playsinline class="hero-video-bg">
             <source src="https://www.web3festival.org/hongkong2026/files/banner_video3.mp4" type="video/mp4">
         </video>
         
         <nav class="fixed top-0 w-full p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
             <img src="abcd_Logo_C.png" class="h-6 md:h-8 w-auto object-contain">
-            <div class="hidden lg:flex gap-8 text-[10px] uppercase tracking-widest">
+            <div class="hidden lg:flex gap-8 text-[10px] uppercase tracking-widest font-black">
                 <a href="#" class="nav-link" data-i18n="nav-home">Home</a>
                 <a href="#summit" class="nav-link" data-i18n="nav-summit">The Summit</a>
                 <a href="#bespoke" class="nav-link" data-i18n="nav-bespoke">Bespoke Series</a>
@@ -86,32 +86,32 @@
                 <a href="#" class="nav-link" data-i18n="nav-about">About Us</a>
             </div>
             <div class="flex items-center gap-4">
-                <button onclick="toggleLanguage()" class="text-[10px] font-bold border border-white/20 px-3 py-1 rounded">EN / 中</button>
-                <a href="#contact" class="px-5 py-2 bg-white text-black text-[10px] font-bold rounded-full uppercase">
+                <button onclick="toggleLanguage()" class="text-[10px] font-black border border-white/20 px-3 py-1 rounded">EN / 中</button>
+                <a href="#contact" class="px-5 py-2 bg-white text-black text-[10px] font-black rounded-full uppercase">
                    <span data-i18n="nav-join">Join Ecosystem</span>
                 </a>
             </div>
         </nav>
 
         <div class="relative z-10 text-center px-6 w-full max-w-7xl">
-            <!-- Tagline -->
-            <div class="mb-4 text-xs md:text-sm tracking-[0.4em] md:tracking-[0.6em] uppercase text-white/70 font-bold" data-i18n="hero-tag">
+            <!-- Tagline 加入文字阴影 -->
+            <div class="mb-4 text-xs md:text-sm tracking-[0.4em] md:tracking-[0.6em] uppercase text-white/90 font-black drop-shadow-lg" data-i18n="hero-tag">
                 LEAD THE VIBE, LINK THE WORLD.
             </div>
 
             <!-- Huge Logo -->
             <div class="mb-8 md:mb-12 flex justify-center">
-                <img src="abcd_Logo_C.png" class="h-32 md:h-64 w-auto object-contain drop-shadow-[0_0_35px_rgba(112,0,255,0.3)]">
+                <img src="abcd_Logo_C.png" class="h-32 md:h-64 w-auto object-contain drop-shadow-[0_10px_50px_rgba(0,0,0,0.8)]">
             </div>
             
-            <!-- Sub-headline (混合大小写，完美视觉呈现) -->
-            <p class="max-w-4xl mx-auto text-sm md:text-2xl text-gray-200 font-bold mb-12 leading-relaxed" data-i18n="hero-desc">
+            <!-- Sub-headline 提升亮度并加入投影 -->
+            <p class="max-w-4xl mx-auto text-base md:text-2xl text-white font-black mb-12 leading-relaxed drop-shadow-2xl" data-i18n="hero-desc">
                 The Hub of APAC Web3 Ecosystem. We don't just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.
             </p>
 
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="#summit" class="px-10 py-4 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-2xl" data-i18n="btn-series">VIEW OUR SERIES</a>
-                <a href="#contact" class="px-10 py-4 glass-panel rounded-full font-bold hover:bg-white/5 transition" data-i18n="btn-collab">COLLABORATE WITH US</a>
+                <a href="#contact" class="px-10 py-4 glass-panel rounded-full font-black hover:bg-white/5 transition" data-i18n="btn-collab">COLLABORATE WITH US</a>
             </div>
         </div>
     </header>
@@ -120,22 +120,22 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="track-card glass-panel p-10 rounded-[3rem] relative overflow-hidden group">
                 <div class="absolute top-0 right-0 p-8 text-6xl font-black opacity-5 group-hover:opacity-10 transition uppercase" data-i18n="summit-label">FLAGSHIP</div>
-                <div class="mb-6 inline-block px-4 py-1 border border-cyan-500 text-cyan-500 text-[10px] font-bold uppercase rounded-full">2000+ Attendees</div>
-                <h2 class="text-4xl font-bold mb-4">abcd Summit</h2>
-                <p class="text-gray-400 font-light leading-relaxed mb-8" data-i18n="summit-desc">
+                <div class="mb-6 inline-block px-4 py-1 border border-cyan-500 text-cyan-500 text-[10px] font-black uppercase rounded-full">2000+ Attendees</div>
+                <h2 class="text-4xl font-black mb-4">abcd Summit</h2>
+                <p class="text-gray-300 leading-relaxed mb-8" data-i18n="summit-desc">
                     The industry bellwether. An annual flagship exhibition summit. Bringing together global brains, top VCs, and industry leaders with pitch roadshows, high-density roundtables, and cross-border vibes.
                 </p>
-                <div class="text-xs tracking-widest font-bold uppercase abcd-gradient underline" data-i18n="support-tag">Official Support Included</div>
+                <div class="text-xs tracking-widest font-black uppercase abcd-gradient underline" data-i18n="support-tag">Official Support Included</div>
             </div>
 
             <div id="bespoke" class="track-card glass-panel p-10 rounded-[3rem] relative overflow-hidden group border-indigo-500/30">
                 <div class="absolute top-0 right-0 p-8 text-6xl font-black opacity-5 group-hover:opacity-10 transition uppercase" data-i18n="bespoke-label">STRATEGIC</div>
-                <div class="mb-6 inline-block px-4 py-1 border border-purple-500 text-purple-500 text-[10px] font-bold uppercase rounded-full">500 Pax Boutique</div>
-                <h2 class="text-4xl font-bold mb-4">abcd Bespoke</h2>
-                <p class="text-gray-400 font-light leading-relaxed mb-8" data-i18n="bespoke-desc">
+                <div class="mb-6 inline-block px-4 py-1 border border-purple-500 text-purple-500 text-[10px] font-black uppercase rounded-full">500 Pax Boutique</div>
+                <h2 class="text-4xl font-black mb-4">abcd Bespoke</h2>
+                <p class="text-gray-300 leading-relaxed mb-8" data-i18n="bespoke-desc">
                     Tailor-made for strategic partners. Immersive social scenes (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.
                 </p>
-                <div class="text-xs tracking-widest font-bold uppercase text-purple-400 underline" data-i18n="bespoke-tag">Deeply Customized IP</div>
+                <div class="text-xs tracking-widest font-black uppercase text-purple-400 underline" data-i18n="bespoke-tag">Deeply Customized IP</div>
             </div>
         </div>
     </section>
@@ -145,18 +145,18 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div class="flex flex-col items-center">
                 <div class="w-16 h-16 value-icon flex items-center justify-center mb-6 text-2xl animate-bounce">🌍</div>
-                <h4 class="text-xl font-bold mb-2">1,500+ Global Minds</h4>
-                <p class="text-gray-500 text-sm font-light" data-i18n="value-1">Powerful industry network and high-quality deal-flow access.</p>
+                <h4 class="text-xl font-black mb-2">1,500+ Global Minds</h4>
+                <p class="text-gray-400 text-sm" data-i18n="value-1">Powerful industry network and high-quality deal-flow access.</p>
             </div>
             <div class="flex flex-col items-center">
                 <div class="w-16 h-16 value-icon flex items-center justify-center mb-6 text-2xl">🏛️</div>
-                <h4 class="text-xl font-bold mb-2">Official Support</h4>
-                <p class="text-gray-500 text-sm font-light" data-i18n="value-2">Endorsed by SEA government officials with on-site presence.</p>
+                <h4 class="text-xl font-black mb-2">Official Support</h4>
+                <p class="text-gray-400 text-sm" data-i18n="value-2">Endorsed by SEA government officials with on-site presence.</p>
             </div>
             <div class="flex flex-col items-center">
                 <div class="w-16 h-16 value-icon flex items-center justify-center mb-6 text-2xl">🚀</div>
-                <h4 class="text-xl font-bold mb-2">Scenario Expert</h4>
-                <p class="text-gray-500 text-sm font-light" data-i18n="value-3">Shaping immersive Web3 lifestyle and cultural vibes.</p>
+                <h4 class="text-xl font-black mb-2">Scenario Expert</h4>
+                <p class="text-gray-400 text-sm" data-i18n="value-3">Shaping immersive Web3 lifestyle and cultural vibes.</p>
             </div>
         </div>
     </section>
@@ -167,75 +167,75 @@
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-cyan-500/50">
                 <h3 class="text-xl font-black text-cyan-400 mb-4">OTG</h3>
                 <div class="space-y-4">
-                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-chairman">Chairman / Founder</p><p class="text-lg font-bold">mrone.eth</p></div>
-                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">0xJasmine</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-chairman">Chairman / Founder</p><p class="text-lg font-black">mrone.eth</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">0xJasmine</p></div>
                 </div>
             </div>
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-purple-500/50">
                 <h3 class="text-xl font-black text-purple-400 mb-4">CH90</h3>
                 <div class="space-y-4">
-                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-founder">Founder</p><p class="text-lg font-bold">Ada</p></div>
-                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">Ben</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-founder">Founder</p><p class="text-lg font-black">Ada</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">Ben</p></div>
                 </div>
             </div>
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-pink-500/50">
                 <h3 class="text-xl font-black text-pink-400 mb-4">MOONX</h3>
                 <div class="space-y-4">
-                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-founder">Founder</p><p class="text-lg font-bold">Alvin</p></div>
-                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">YS</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-founder">Founder</p><p class="text-lg font-black">Alvin</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">YS</p></div>
                 </div>
             </div>
             <div class="glass-panel p-8 rounded-3xl border-t-2 border-orange-500/50">
                 <h3 class="text-xl font-black text-orange-400 mb-4">CRM</h3>
                 <div class="space-y-4">
-                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-vice">Vice Chairman / Founder</p><p class="text-lg font-bold">Kxi</p></div>
-                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">Andrew, Yanzii</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-vice">Vice Chairman / Founder</p><p class="text-lg font-black">Kxi</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-black tracking-widest" data-i18n="role-cofounder">Co-founder</p><p class="text-lg">Andrew, Yanzii</p></div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="archives" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center" data-i18n="archives-title">Event <span class="abcd-gradient">Archives</span></h2>
+        <h2 class="text-3xl font-black mb-12 uppercase tracking-widest text-center" data-i18n="archives-title">Event <span class="abcd-gradient">Archives</span></h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="glass-panel p-4 rounded-3xl group">
                 <div class="h-48 rounded-2xl bg-gradient-to-br from-indigo-900 to-black mb-4 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
-                <h5 class="font-bold">abcd Summit 2026 (Pattaya)</h5>
+                <h5 class="font-black">abcd Summit 2026 (Pattaya)</h5>
                 <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest" data-i18n="arch-1">Our First 1000+ Scale Exhibition</p>
             </div>
             <div class="glass-panel p-4 rounded-3xl group">
                 <div class="h-48 rounded-2xl bg-gradient-to-br from-purple-900 to-black mb-4 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
-                <h5 class="font-bold">abcd: Beyond Borders</h5>
+                <h5 class="font-black">abcd: Beyond Borders</h5>
                 <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest" data-i18n="arch-2">Cross-border Nomad Series</p>
             </div>
             <div class="glass-panel p-4 rounded-3xl group">
                 <div class="h-48 rounded-2xl bg-gradient-to-br from-pink-900 to-black mb-4 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
-                <h5 class="font-bold">PizzaFi / Music Party</h5>
+                <h5 class="font-black">PizzaFi / Music Party</h5>
                 <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest" data-i18n="arch-3">High-sticky Community Meetups</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-24 px-6 text-center bg-gradient-to-t from-indigo-900/20 to-black">
-        <h2 class="text-4xl font-bold mb-4 uppercase" data-i18n="join-title">Join the <span class="abcd-gradient">Ecosystem</span></h2>
-        <p class="text-gray-400 mb-12 font-light" data-i18n="join-desc">Don't just attend. Be part of the vibe that shapes the APAC Web3 landscape.</p>
+        <h2 class="text-4xl font-black mb-4 uppercase" data-i18n="join-title">Join the <span class="abcd-gradient">Ecosystem</span></h2>
+        <p class="text-gray-400 mb-12 font-black" data-i18n="join-desc">Don't just attend. Be part of the vibe that shapes the APAC Web3 landscape.</p>
         <div class="max-w-xl mx-auto grid grid-cols-1 gap-4">
             <a href="https://luma.com" target="_blank" class="glass-panel p-6 rounded-2xl hover:bg-white/10 transition flex items-center justify-between group">
                 <div class="text-left">
-                    <div class="font-bold text-lg" data-i18n="attend-btn">I want to attend the next event</div>
+                    <div class="font-black text-lg" data-i18n="attend-btn">I want to attend the next event</div>
                     <div class="text-xs text-gray-500" data-i18n="attend-sub">Get your ticket for the upcoming series</div>
                 </div>
                 <span class="group-hover:translate-x-2 transition">→</span>
             </a>
             <a href="mailto:contact@abcd.com" class="glass-panel p-6 rounded-2xl border-indigo-500/50 bg-indigo-500/5 hover:bg-indigo-500/10 transition flex items-center justify-between group text-left">
                 <div>
-                    <div class="font-bold text-lg text-indigo-400" data-i18n="bespoke-btn">Inquiry for Bespoke Event</div>
+                    <div class="font-black text-lg text-indigo-400" data-i18n="bespoke-btn">Inquiry for Bespoke Event</div>
                     <div class="text-xs text-gray-500" data-i18n="bespoke-sub">Customized branding & networking experience</div>
                 </div>
                 <span class="group-hover:translate-x-2 transition">→</span>
@@ -243,17 +243,16 @@
         </div>
     </section>
 
-    <!-- Ecosystem Partner Logic -->
     <section class="marquee-container bg-black/40 py-10">
         <div class="text-center mb-8">
-            <h4 class="text-[10px] tracking-[0.5em] uppercase text-white/30 font-bold" data-i18n="partner-title">Ecosystem Partners</h4>
+            <h4 class="text-[10px] tracking-[0.5em] uppercase text-white/30 font-black" data-i18n="partner-title">Ecosystem Partners</h4>
         </div>
         <div class="marquee-track scroll-left" id="row-1"></div>
         <div class="marquee-track scroll-right" id="row-2"></div>
         <div class="marquee-track scroll-left" id="row-3"></div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em] font-bold" data-i18n="footer-text">
+    <footer class="py-12 border-t border-white/5 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em] font-black" data-i18n="footer-text">
         © 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem.
     </footer>
 
@@ -292,7 +291,7 @@
             },
             zh: {
                 "nav-home": "主页", "nav-summit": "年度旗舰峰会", "nav-bespoke": "定制化专题系列", "nav-team": "核心团队", "nav-archives": "活动归档", "nav-about": "关于我们", "nav-join": "加入生态",
-                "hero-tag": "引领行业氛围, 连接全球世界。",
+                "hero-tag": "LEAD THE VIBE, LINK THE WORLD.",
                 "hero-desc": "亚太 Web3 生态枢纽。我们不只是举办活动，我们通过旗舰峰会和定制体验，引领行业氛围并连接世界。",
                 "btn-series": "查看系列活动", "btn-collab": "与我们合作",
                 "summit-label": "年度旗舰", "summit-desc": "行业风向标。年度旗舰展览型峰会。汇聚全球智脑、顶尖 VC、行业领袖，结合项目路演、高密度圆桌及跨界场景。",
@@ -315,6 +314,7 @@
                 const key = el.getAttribute('data-i18n');
                 if(translations[lang][key]) el.innerHTML = translations[lang][key];
             });
+            document.getElementById('lang-toggle-text').innerText = lang === 'en' ? 'EN / 中' : '中 / EN';
             localStorage.setItem('abcd-lang', lang);
         }
         window.toggleLanguage = () => { currentLang = currentLang === 'en' ? 'zh' : 'en'; applyLanguage(currentLang); };
