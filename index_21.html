@@ -16,6 +16,17 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* 优化二：霓虹灯效果 */
+        .neon-vibe {
+            color: #fff;
+            text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #7000FF, 0 0 82px #7000FF;
+            animation: breathe 2s infinite alternate;
+        }
+        @keyframes breathe {
+            from { opacity: 0.8; text-shadow: 0 0 10px #7000FF; }
+            to { opacity: 1; text-shadow: 0 0 20px #00C2FF, 0 0 30px #7000FF; }
+        }
+
         .hero-video-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; z-index: -1; opacity: 0.4; filter: saturate(1.5) brightness(0.8);
@@ -38,6 +49,13 @@
             background: linear-gradient(135deg, rgba(0, 194, 255, 0.1), rgba(255, 0, 122, 0.1));
             border-radius: 20px;
         }
+
+        /* 优化三：合作伙伴走马灯样式 */
+        .marquee-container { position: relative; width: 100%; overflow: hidden; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+        .marquee-track { display: flex; width: max-content; gap: 60px; animation: scroll 40s linear infinite; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .partner-img { height: 35px; width: auto; opacity: 0.4; filter: grayscale(100%); transition: 0.3s; }
+        .partner-img:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
 
         [data-lang]:not(.active) { display: none; }
         
@@ -62,6 +80,7 @@
                 <a href="#" class="nav-link">Home</a>
                 <a href="#summit" class="nav-link">The Summit</a>
                 <a href="#bespoke" class="nav-link">Bespoke Series</a>
+                <a href="#team" class="nav-link">Team</a>
                 <a href="#archives" class="nav-link">Archives</a>
                 <a href="#" class="nav-link">About Us</a>
             </div>
@@ -73,12 +92,17 @@
 
         <div class="relative z-10 text-center px-6">
             <div class="mb-4 text-xs md:text-sm tracking-[0.5em] uppercase text-white/60 font-bold">Lead the Vibe, Link the World.</div>
-            <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-6 leading-none">
-                abcd <span class="text-white/20">|</span> <span class="neon-gradient">APAC</span>
-            </h1>
-            <p class="max-w-2xl mx-auto text-sm md:text-xl text-gray-300 font-light leading-relaxed mb-10" data-i18n="hero-sub">
+            
+            <!-- 优化二：用Logo取代文字标题 -->
+            <div class="mb-8 flex justify-center">
+                <img src="abcd_Logo_C.png" class="h-16 md:h-28 w-auto">
+            </div>
+
+            <!-- 优化二：霓虹灯效果文案 -->
+            <p class="max-w-2xl mx-auto text-sm md:text-xl neon-vibe font-bold leading-relaxed mb-10" data-i18n="hero-sub">
                 The Hub of APAC Web3 Ecosystem. We don’t just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.
             </p>
+
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="#summit" class="px-10 py-4 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-2xl">VIEW OUR SERIES</a>
                 <a href="#contact" class="px-10 py-4 glass-panel rounded-full font-bold hover:bg-white/5 transition">COLLABORATE WITH US</a>
@@ -130,6 +154,45 @@
         </div>
     </section>
 
+    <!-- 优化一：Team Section -->
+    <section id="team" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-black mb-16 text-center tracking-tighter uppercase">The <span class="neon-gradient">Alliance</span> Behind abcd</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- OTG -->
+            <div class="glass-panel p-8 rounded-3xl border-t-2 border-cyan-500/50">
+                <h3 class="text-xl font-black text-cyan-400 mb-4">OTG</h3>
+                <div class="space-y-4">
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Chairman / Founder</p><p class="text-lg font-bold">mrone.eth</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Co-founder</p><p class="text-lg">0xJasmine</p></div>
+                </div>
+            </div>
+            <!-- CH90 -->
+            <div class="glass-panel p-8 rounded-3xl border-t-2 border-purple-500/50">
+                <h3 class="text-xl font-black text-purple-400 mb-4">CH90</h3>
+                <div class="space-y-4">
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Founder</p><p class="text-lg font-bold">Ada</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Co-founder</p><p class="text-lg">Ben</p></div>
+                </div>
+            </div>
+            <!-- MOONX -->
+            <div class="glass-panel p-8 rounded-3xl border-t-2 border-pink-500/50">
+                <h3 class="text-xl font-black text-pink-400 mb-4">MOONX</h3>
+                <div class="space-y-4">
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Founder</p><p class="text-lg font-bold">Alvin</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Co-founder</p><p class="text-lg">YS</p></div>
+                </div>
+            </div>
+            <!-- CRM -->
+            <div class="glass-panel p-8 rounded-3xl border-t-2 border-orange-500/50">
+                <h3 class="text-xl font-black text-orange-400 mb-4">CRM</h3>
+                <div class="space-y-4">
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Vice Chairman / Founder</p><p class="text-lg font-bold">Kxi</p></div>
+                    <div><p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Co-founders</p><p class="text-lg">Andrew, Yanzii</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="archives" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center">Event <span class="abcd-gradient">Archives</span></h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -160,7 +223,6 @@
     <section id="contact" class="py-24 px-6 text-center bg-gradient-to-t from-indigo-900/20 to-black">
         <h2 class="text-4xl font-bold mb-4 uppercase">Join the <span class="abcd-gradient">Ecosystem</span></h2>
         <p class="text-gray-400 mb-12 font-light">Don't just attend. Be part of the vibe that shapes the APAC Web3 landscape.</p>
-        
         <div class="max-w-xl mx-auto grid grid-cols-1 gap-4">
             <a href="https://luma.com" target="_blank" class="glass-panel p-6 rounded-2xl hover:bg-white/10 transition flex items-center justify-between group">
                 <div class="text-left">
@@ -179,25 +241,40 @@
         </div>
     </section>
 
+    <!-- 优化三：展示 Ecosystem Partner Logo 底部 -->
+    <section class="marquee-container bg-black/40">
+        <div class="text-center mb-8">
+            <h4 class="text-[10px] tracking-[0.4em] uppercase text-white/40 font-bold">Ecosystem Partners</h4>
+        </div>
+        <div class="marquee-track" id="partner-row">
+            <!-- JS 自动填充 -->
+        </div>
+    </section>
+
     <footer class="py-12 border-t border-white/5 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em] font-bold">
         © 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem.
     </footer>
 
-    <script>
+    <script type="module">
+        import { partners } from './partnersData.js';
+        const partnerRow = document.getElementById('partner-row');
+        if (partnerRow && partners) {
+            const doubleData = [...partners, ...partners]; 
+            partnerRow.innerHTML = doubleData.map(p => `<img src="${p.logo}" class="partner-img" alt="${p.name}">`).join('');
+        }
+
         const translations = {
             en: {
                 "hero-sub": "The Hub of APAC Web3 Ecosystem. We don’t just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.",
                 "summit-desc": "The industry bellwether. An annual flagship exhibition summit. Bringing together global brains, top VCs, and industry leaders with pitch roadshows, high-density roundtables, and cross-border vibes.",
-                "bespoke-desc": "Tailor-made for strategic partners. Immersive social scenes (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.",
-                "attend-btn": "I want to attend the next event",
-                "bespoke-btn": "Inquiry for Bespoke Event"
+                "bespoke-desc": "Tailor-made for strategic partners.沉浸式社交场景设计 (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.",
+                "attend-btn": "I want to attend the next event", "bespoke-btn": "Inquiry for Bespoke Event"
             },
             zh: {
                 "hero-sub": "亚太 Web3 生态中心。我们不只是举办活动，我们通过旗舰峰会和定制体验，引领行业氛围并连接世界。",
                 "summit-desc": "行业风向标。年度旗舰展览型峰会。汇聚全球智脑、顶尖 VC、行业领袖，结合项目路演、高密度圆桌及跨界场景。",
                 "bespoke-desc": "为战略合作伙伴量身打造。场景化营销 (旅游、支付、RWA 等)。精准触达垂直圈层，将 Web3 深度融入生活方式。",
-                "attend-btn": "我想参加下一场活动",
-                "bespoke-btn": "我想为品牌定制专属活动"
+                "attend-btn": "我想参加下一场活动", "bespoke-btn": "我想为品牌定制专属活动"
             }
         };
 
