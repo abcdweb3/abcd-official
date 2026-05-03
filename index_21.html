@@ -39,7 +39,6 @@
             border-radius: 20px;
         }
 
-        /* 优化三：三列走马灯保持比例 */
         .marquee-container { position: relative; width: 100%; overflow: hidden; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.05); }
         .marquee-track { display: flex; width: max-content; gap: 40px; padding: 10px 0; }
         @media (min-width: 768px) { .marquee-track { gap: 60px; padding: 15px 0; } }
@@ -88,18 +87,18 @@
         </nav>
 
         <div class="relative z-10 text-center px-6 w-full max-w-7xl">
-            <!-- 优化一：修复Logo手机端变形 -->
+            <!-- 优化：Tagline 移至 Logo 上方并缩小 -->
+            <div class="mb-4 text-xs md:text-sm tracking-[0.4em] md:tracking-[0.6em] uppercase text-white/70 font-bold" data-i18n="hero-sub">
+                LEAD THE VIBE, LINK THE WORLD.
+            </div>
+
+            <!-- Logo 保持吸引力 -->
             <div class="mb-8 md:mb-12 flex justify-center">
                 <img src="abcd_Logo_C.png" class="h-32 md:h-64 w-auto object-contain drop-shadow-[0_0_35px_rgba(112,0,255,0.3)]">
             </div>
-
-            <!-- 优化二：响应式Tagline尺寸 -->
-            <h2 class="text-3xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-tight mb-8" data-i18n="hero-sub">
-                LEAD THE VIBE, LINK THE WORLD.
-            </h2>
             
-            <!-- 优化三：补全Sub-headline -->
-            <p class="max-w-4xl mx-auto text-xs md:text-xl text-gray-300 font-bold mb-12 tracking-wide md:tracking-widest uppercase leading-relaxed" data-i18n="hero-desc">
+            <!-- 优化：Sub-headline 恢复混合大小写，提升易读性 -->
+            <p class="max-w-4xl mx-auto text-sm md:text-2xl text-gray-200 font-bold mb-12 leading-relaxed" data-i18n="hero-desc">
                 The Hub of APAC Web3 Ecosystem. We don't just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.
             </p>
 
@@ -110,7 +109,6 @@
         </div>
     </header>
 
-    <!-- Section 2: Dual Track -->
     <section id="summit" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="track-card glass-panel p-10 rounded-[3rem] relative overflow-hidden group">
@@ -135,7 +133,6 @@
         </div>
     </section>
 
-    <!-- Section 3: Values -->
     <section class="py-20 bg-white/5 border-y border-white/5 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div class="flex flex-col items-center">
@@ -156,7 +153,6 @@
         </div>
     </section>
 
-    <!-- Team Section -->
     <section id="team" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-3xl md:text-5xl font-black mb-16 text-center tracking-tighter uppercase text-white/50">Core Alliance</h2>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -191,7 +187,6 @@
         </div>
     </section>
 
-    <!-- Archives -->
     <section id="archives" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center">Event <span class="abcd-gradient">Archives</span></h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -240,7 +235,6 @@
         </div>
     </section>
 
-    <!-- 三列走马灯矩阵 -->
     <section class="marquee-container bg-black/40 py-10">
         <div class="text-center mb-8">
             <h4 class="text-[10px] tracking-[0.5em] uppercase text-white/30 font-bold">Ecosystem Partners</h4>
@@ -278,14 +272,14 @@
 
         const translations = {
             en: {
-                "hero-sub": "LEAD THE VIBE, <br> LINK THE WORLD.",
+                "hero-sub": "LEAD THE VIBE, LINK THE WORLD.",
                 "hero-desc": "The Hub of APAC Web3 Ecosystem. We don't just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.",
                 "summit-desc": "The industry bellwether. An annual flagship exhibition summit. Bringing together global brains, top VCs, and industry leaders with pitch roadshows, high-density roundtables, and cross-border vibes.",
                 "bespoke-desc": "Tailor-made for strategic partners. 沉浸式社交场景设计 (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.",
                 "attend-btn": "I want to attend the next event", "bespoke-btn": "Inquiry for Bespoke Event"
             },
             zh: {
-                "hero-sub": "引领行业氛围, <br> 连接全球世界。",
+                "hero-sub": "LEAD THE VIBE, LINK THE WORLD.",
                 "hero-desc": "亚太 Web3 生态枢纽。我们不只是举办活动，我们通过旗舰峰会和定制体验，引领行业氛围并连接世界。",
                 "summit-desc": "行业风向标。年度旗舰展览型峰会。汇聚全球智脑、顶尖 VC、行业领袖，结合项目路演、高密度圆桌及跨界场景。",
                 "bespoke-desc": "为战略合作伙伴量身打造。场景化营销 (旅游、支付、RWA 等)。精准触达垂直圈层，将 Web3 深度融入生活方式。",
