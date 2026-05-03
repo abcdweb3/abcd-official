@@ -4,247 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>abcd | APAC BLOCKCHAIN DAY</title>
-    
     <link rel="icon" type="image/png" href="abcd_Logo_C.png">
-    <link rel="apple-touch-icon" href="abcd_Logo_C.png">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap');
-        body { 
-            font-family: 'Space Grotesk', sans-serif; 
-            background-color: #000; 
-            color: white; 
-            overflow-x: hidden; 
-        }
-        .abcd-gradient {
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #000; color: white; overflow-x: hidden; }
+        
+        .neon-gradient {
             background: linear-gradient(90deg, #00C2FF 0%, #7000FF 30%, #FF007A 70%, #FF9900 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .beyond-borders {
-            letter-spacing: 0.4em;
-            background: linear-gradient(to right, #fff 20%, #666 50%, #fff 80%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s linear infinite;
-            line-height: 1.2;
+
+        .hero-video-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: -1; opacity: 0.4; filter: saturate(1.5) brightness(0.8);
         }
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-        .glass-card {
+
+        .glass-panel {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        @media (min-width: 768px) {
-            .glass-card:hover {
-                border-color: rgba(255, 255, 255, 0.3);
-                background: rgba(255, 255, 255, 0.07);
-                transform: translateY(-5px);
-            }
-        }
-        [data-lang]:not(.active) { display: none; }
-
-        /* --- 合作伙伴走马灯专属样式 --- */
-        .marquee-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-        .marquee-container::before, .marquee-container::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: 150px;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .marquee-container::before { left: 0; background: linear-gradient(to right, #000, transparent); }
-        .marquee-container::after { right: 0; background: linear-gradient(to left, #000, transparent); }
-
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            gap: 40px;
-            padding: 10px 0;
-            animation: scroll 45s linear infinite;
-        }
-        .marquee-track.reverse { animation: scroll-reverse 45s linear infinite; }
-        .marquee-track:hover { animation-play-state: paused; }
-
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        @keyframes scroll-reverse {
-            from { transform: translateX(-50%); }
-            to { transform: translateX(0); }
-        }
-
-        .partner-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 140px;
-            height: 80px;
-            flex-shrink: 0;
-        }
-
-        .partner-img {
-            max-height: 50px;
-            max-width: 110px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            opacity: 0.4;
-            filter: grayscale(100%);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .partner-wrapper:hover .partner-img {
-            opacity: 1;
-            filter: grayscale(0%);
-            transform: scale(1.15);
+        .track-card:hover {
+            border-color: #7000FF;
+            box-shadow: 0 0 30px rgba(112, 0, 255, 0.2);
+            transform: translateY(-10px);
         }
 
-        @media (max-width: 768px) {
-            .partner-wrapper { width: 100px; height: 60px; }
-            .partner-img { max-height: 35px; max-width: 80px; }
-            .marquee-track { gap: 20px; }
+        .value-icon {
+            background: linear-gradient(135deg, rgba(0, 194, 255, 0.1), rgba(255, 0, 122, 0.1));
+            border-radius: 20px;
         }
+
+        [data-lang]:not(.active) { display: none; }
+        
+        .nav-link { position: relative; font-weight: 700; transition: color 0.3s; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background: #7000FF; transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
     </style>
 </head>
 <body>
-    <div class="fixed top-0 left-0 w-full h-full -z-10">
-        <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-indigo-600/15 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-orange-600/10 blur-[120px] rounded-full"></div>
-    </div>
 
-    <nav class="fixed w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
-        <div class="flex items-center">
-            <a href="/"><img src="abcd_Logo_C.png" alt="abcd Logo" class="h-6 md:h-8 w-auto hover:opacity-80 transition"></a>
-        </div>
-        <div class="flex items-center gap-4 md:gap-8">
-            <button onclick="toggleLanguage()" class="text-[10px] font-bold tracking-widest px-3 py-1 border border-white/10 rounded hover:bg-white/5 transition">
-                <span id="lang-toggle-text">EN / 中</span>
-            </button>
-            <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest font-bold">
-                <a href="https://x.com/abcd_web3_" target="_blank" class="hover:text-indigo-400 transition">Twitter (X)</a>
-                <a href="https://linktr.ee/abcd.web3" target="_blank" class="hover:text-indigo-400 transition">Linktree</a>
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop playsinline class="hero-video-bg">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-technology-background-with-lines-and-dots-33632-large.mp4" type="video/mp4">
+        </video>
+        
+        <nav class="fixed top-0 w-full p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
+            <img src="abcd_Logo_C.png" class="h-8 w-auto">
+            <div class="hidden lg:flex gap-8 text-[10px] uppercase tracking-widest">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#summit" class="nav-link">The Summit</a>
+                <a href="#bespoke" class="nav-link">Bespoke Series</a>
+                <a href="#archives" class="nav-link">Archives</a>
+                <a href="#" class="nav-link">About Us</a>
             </div>
-            <a href="https://linktr.ee/abcd.web3" target="_blank" class="px-5 py-2 bg-white text-black rounded-full text-[10px] font-bold hover:bg-white hover:text-black transition uppercase">
-                <span data-i18n="nav-community">Join Community</span>
-            </a>
-        </div>
-    </nav>
-
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-32 pb-20">
-        <div class="mb-6 inline-block px-4 py-1 border border-green-500/30 rounded-full text-[10px] tracking-[0.3em] text-green-400 uppercase font-bold">
-            <span data-i18n="hero-tag">Mission Accomplished · Kuala Lumpur</span>
-        </div>
-        <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-4 leading-[1.05] md:leading-none">
-            APAC<br><span class="abcd-gradient">BLOCKCHAIN</span><br>DAY
-        </h1>
-        <span class="beyond-borders text-3xl md:text-6xl block mt-6 mb-12 font-black uppercase">BEYOND BORDERS</span>
-
-        <div class="max-w-2xl glass-card p-8 md:p-12 rounded-[2rem] mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 uppercase tracking-tight" data-i18n="thank-you">THANK YOU FOR JOINING US</h2>
-            <p class="text-gray-400 text-sm md:text-base leading-relaxed font-light" data-i18n="thank-desc">The Beyond Borders expedition in KL has successfully concluded. Stay tuned for our next destination.</p>
-        </div>
-
-        <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto items-center">
-            <a href="https://x.com/abcd_web3_" target="_blank" class="w-full md:w-auto px-14 py-6 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_50px_rgba(255,255,255,0.25)] text-lg uppercase">
-                <span data-i18n="btn-follow">Follow Recap</span>
-            </a>
-            <a href="https://linktr.ee/abcd.web3" target="_blank" class="w-full md:w-auto px-10 py-6 glass-card rounded-full font-bold text-xs tracking-widest text-gray-300 uppercase">
-                Join the Ecosystem
-            </a>
-        </div>
-    </section>
-
-    <section class="py-20 max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #00C2FF;">A</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Adoption</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-a">Driving real-world blockchain use cases across the APAC region.</p>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="text-[10px] font-bold border border-white/20 px-3 py-1 rounded">EN / 中</button>
+                <a href="#contact" class="px-5 py-2 bg-white text-black text-[10px] font-bold rounded-full uppercase">Join Ecosystem</a>
             </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #7000FF;">B</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Building</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-b">Empowering builders to create next-gen decentralized infrastructure.</p>
+        </nav>
+
+        <div class="relative z-10 text-center px-6">
+            <div class="mb-4 text-xs md:text-sm tracking-[0.5em] uppercase text-white/60 font-bold">Lead the Vibe, Link the World.</div>
+            <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-6 leading-none">
+                abcd <span class="text-white/20">|</span> <span class="neon-gradient">APAC</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-sm md:text-xl text-gray-300 font-light leading-relaxed mb-10" data-i18n="hero-sub">
+                The Hub of APAC Web3 Ecosystem. We don’t just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#summit" class="px-10 py-4 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-2xl">VIEW OUR SERIES</a>
+                <a href="#contact" class="px-10 py-4 glass-panel rounded-full font-bold hover:bg-white/5 transition">COLLABORATE WITH US</a>
             </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF007A;">C</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Connection</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-c">Bridging VCs, founders, and high-value Web3 communities.</p>
+        </div>
+    </header>
+
+    <section id="summit" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="track-card glass-panel p-10 rounded-[3rem] relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-8 text-6xl font-black opacity-5 group-hover:opacity-10 transition">FLAGSHIP</div>
+                <div class="mb-6 inline-block px-4 py-1 border border-cyan-500 text-cyan-500 text-[10px] font-bold uppercase rounded-full">1500+ Attendees</div>
+                <h2 class="text-4xl font-bold mb-4">abcd Summit</h2>
+                <p class="text-gray-400 font-light leading-relaxed mb-8" data-i18n="summit-desc">
+                    The industry bellwether. An annual flagship exhibition summit. Bringing together global brains, top VCs, and industry leaders with pitch roadshows, high-density roundtables, and cross-border vibes.
+                </p>
+                <div class="text-xs tracking-widest font-bold uppercase abcd-gradient underline">Official Support Included</div>
             </div>
-            <div class="glass-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
-                <div class="text-4xl md:text-5xl font-black mb-4" style="color: #FF9900;">D</div>
-                <h3 class="text-lg md:text-xl font-bold mb-2 uppercase tracking-tighter">Discovery</h3>
-                <p class="text-gray-500 text-xs md:text-sm leading-relaxed font-light" data-i18n="card-d">Uncovering the next alpha opportunities in the APAC market.</p>
+
+            <div id="bespoke" class="track-card glass-panel p-10 rounded-[3rem] relative overflow-hidden group border-indigo-500/30">
+                <div class="absolute top-0 right-0 p-8 text-6xl font-black opacity-5 group-hover:opacity-10 transition">STRATEGIC</div>
+                <div class="mb-6 inline-block px-4 py-1 border border-purple-500 text-purple-500 text-[10px] font-bold uppercase rounded-full">500 Pax Boutique</div>
+                <h2 class="text-4xl font-bold mb-4">abcd Bespoke</h2>
+                <p class="text-gray-400 font-light leading-relaxed mb-8" data-i18n="bespoke-desc">
+                    Tailor-made for strategic partners.沉浸式社交场景设计 (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.
+                </p>
+                <div class="text-xs tracking-widest font-bold uppercase text-purple-400 underline">Deeply Customized IP</div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-black/50">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-4xl font-bold uppercase tracking-widest abcd-gradient inline-block" data-i18n="partner-title">Ecosystem Partners</h2>
-            <p class="text-gray-500 text-[10px] tracking-[0.4em] mt-2 uppercase font-bold" data-i18n="partner-subtitle">Scaling Beyond Borders</p>
-        </div>
-        <div class="marquee-container">
-            <div class="marquee-track" id="row1"></div>
-            <div class="marquee-track reverse" id="row2"></div>
+    <section class="py-20 bg-white/5 border-y border-white/5 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 value-icon flex items-center justify-center mb-6 text-2xl animate-bounce">🌍</div>
+                <h4 class="text-xl font-bold mb-2">1,500+ Global Minds</h4>
+                <p class="text-gray-500 text-sm font-light">Powerful industry network and high-quality deal-flow access.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 value-icon flex items-center justify-center mb-6 text-2xl">🏛️</div>
+                <h4 class="text-xl font-bold mb-2">Official Support</h4>
+                <p class="text-gray-500 text-sm font-light">Endorsed by SEA government officials with on-site presence.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 value-icon flex items-center justify-center mb-6 text-2xl">🚀</div>
+                <h4 class="text-xl font-bold mb-2">Scenario Expert</h4>
+                <p class="text-gray-500 text-sm font-light">Shaping immersive Web3 lifestyle and cultural vibes.</p>
+            </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center border-t border-white/5 px-6">
-        <p class="text-gray-600 text-[10px] tracking-widest uppercase font-bold" data-i18n="footer">
-            © 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem.
-        </p>
+    <section id="archives" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center">Event <span class="abcd-gradient">Archives</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-panel p-4 rounded-3xl group">
+                <div class="h-48 rounded-2xl bg-gradient-to-br from-indigo-900 to-black mb-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <h5 class="font-bold">abcd Summit 2026 (Pattaya)</h5>
+                <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest">Our First 1000+ Scale Exhibition</p>
+            </div>
+            <div class="glass-panel p-4 rounded-3xl group">
+                <div class="h-48 rounded-2xl bg-gradient-to-br from-purple-900 to-black mb-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <h5 class="font-bold">abcd: Beyond Borders</h5>
+                <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest">Cross-border Nomad Series</p>
+            </div>
+            <div class="glass-panel p-4 rounded-3xl group">
+                <div class="h-48 rounded-2xl bg-gradient-to-br from-pink-900 to-black mb-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <h5 class="font-bold">PizzaFi / Music Party</h5>
+                <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest">High-sticky Community Meetups</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 text-center bg-gradient-to-t from-indigo-900/20 to-black">
+        <h2 class="text-4xl font-bold mb-4 uppercase">Join the <span class="abcd-gradient">Ecosystem</span></h2>
+        <p class="text-gray-400 mb-12 font-light">Don't just attend. Be part of the vibe that shapes the APAC Web3 landscape.</p>
+        
+        <div class="max-w-xl mx-auto grid grid-cols-1 gap-4">
+            <a href="https://luma.com" target="_blank" class="glass-panel p-6 rounded-2xl hover:bg-white/10 transition flex items-center justify-between group">
+                <div class="text-left">
+                    <div class="font-bold text-lg" data-i18n="attend-btn">I want to attend the next event</div>
+                    <div class="text-xs text-gray-500">Get your ticket for the upcoming series</div>
+                </div>
+                <span class="group-hover:translate-x-2 transition">→</span>
+            </a>
+            <a href="mailto:contact@abcd.com" class="glass-panel p-6 rounded-2xl border-indigo-500/50 bg-indigo-500/5 hover:bg-indigo-500/10 transition flex items-center justify-between group text-left">
+                <div>
+                    <div class="font-bold text-lg text-indigo-400" data-i18n="bespoke-btn">Inquiry for Bespoke Event</div>
+                    <div class="text-xs text-gray-500">Customized branding & networking experience</div>
+                </div>
+                <span class="group-hover:translate-x-2 transition">→</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em] font-bold">
+        © 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem.
     </footer>
 
-    <script type="module">
-        import { partners } from './partnersData.js';
-
+    <script>
         const translations = {
             en: {
-                "nav-community": "Join Community", 
-                "hero-tag": "Mission Accomplished · Kuala Lumpur",
-                "thank-you": "THANK YOU FOR JOINING US",
-                "thank-desc": "The Beyond Borders expedition in KL has successfully concluded. Stay tuned for our next destination.",
-                "btn-follow": "Follow Recap",
-                "card-a": "Driving real-world blockchain use cases across the APAC region.",
-                "card-b": "Empowering builders to create next-gen decentralized infrastructure.",
-                "card-c": "Bridging VCs, founders, and high-value Web3 communities.",
-                "card-d": "Uncovering the next alpha opportunities in the APAC market.",
-                "partner-title": "Ecosystem Partners", "partner-subtitle": "Scaling Beyond Borders",
-                "footer": "© 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem."
+                "hero-sub": "The Hub of APAC Web3 Ecosystem. We don’t just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.",
+                "summit-desc": "The industry bellwether. An annual flagship exhibition summit. Bringing together global brains, top VCs, and industry leaders with pitch roadshows, high-density roundtables, and cross-border vibes.",
+                "bespoke-desc": "Tailor-made for strategic partners. Immersive social scenes (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.",
+                "attend-btn": "I want to attend the next event",
+                "bespoke-btn": "Inquiry for Bespoke Event"
             },
             zh: {
-                "nav-community": "加入社区", 
-                "hero-tag": "圆满收官 · 吉隆坡站",
-                "thank-you": "感谢您的参与",
-                "thank-desc": "Beyond Borders 吉隆坡站活动已圆满结束。请期待我们的下一站旅程。",
-                "btn-follow": "查看回顾",
-                "card-a": "推动区块链技术在亚太地区的真实应用场景落地。",
-                "card-b": "赋能开发者与 Builder，构建去中心化的未来基础设施。",
-                "card-c": "打破隔阂，连接 VC、创始人与高价值 Web3 社区。",
-                "card-d": "发掘亚太市场的下一个 Alpha 机会与独角兽项目。",
-                "partner-title": "生态合作伙伴", "partner-subtitle": "助力创新 · 连接全球",
-                "footer": "© 2026 APAC BLOCKCHAIN DAY. 连接亚太 Web3 生态系统。"
+                "hero-sub": "亚太 Web3 生态中心。我们不只是举办活动，我们通过旗舰峰会和定制体验，引领行业氛围并连接世界。",
+                "summit-desc": "行业风向标。年度旗舰展览型峰会。汇聚全球智脑、顶尖 VC、行业领袖，结合项目路演、高密度圆桌及跨界场景。",
+                "bespoke-desc": "为战略合作伙伴量身打造。场景化营销 (旅游、支付、RWA 等)。精准触达垂直圈层，将 Web3 深度融入生活方式。",
+                "attend-btn": "我想参加下一场活动",
+                "bespoke-btn": "我想为品牌定制专属活动"
             }
         };
 
         let currentLang = localStorage.getItem('abcd-lang') || 'en';
-
-        window.applyLanguage = function(lang) {
+        function applyLanguage(lang) {
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if(translations[lang][key]) el.innerText = translations[lang][key];
@@ -252,32 +210,8 @@
             document.getElementById('lang-toggle-text').innerText = lang === 'en' ? 'EN / 中' : '中 / EN';
             localStorage.setItem('abcd-lang', lang);
         }
-
-        window.toggleLanguage = function() {
-            currentLang = currentLang === 'en' ? 'zh' : 'en';
-            applyLanguage(currentLang);
-        }
-
+        window.toggleLanguage = () => { currentLang = currentLang === 'en' ? 'zh' : 'en'; applyLanguage(currentLang); };
         applyLanguage(currentLang);
-
-        // 合作伙伴渲染
-        const row1 = document.getElementById('row1');
-        const row2 = document.getElementById('row2');
-        const midpoint = Math.ceil(partners.length / 2);
-        const set1 = partners.slice(0, midpoint);
-        const set2 = partners.slice(midpoint);
-
-        function renderLogos(container, data) {
-            const displayData = [...data, ...data, ...data, ...data]; 
-            container.innerHTML = displayData.map(p => `
-                <div class="partner-wrapper">
-                    <img src="${p.logo}" alt="${p.name}" class="partner-img" title="${p.type}: ${p.name}">
-                </div>
-            `).join('');
-        }
-        
-        renderLogos(row1, set1);
-        renderLogos(row2, set2);
     </script>
 </body>
 </html>
