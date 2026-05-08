@@ -361,31 +361,16 @@
     </section>
 
     <section id="archives" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center" data-i18n="archives-title">Event <span class="neon-gradient">Archives</span></h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 class="text-3xl font-bold mb-16 uppercase tracking-widest text-center" data-i18n="archives-title">Event <span class="neon-gradient">Archives</span></h2>
 
-            <!-- 1. UTON -->
-            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
-                <div class="h-48 overflow-hidden flex-shrink-0">
-                    <img src="/events/abcd_UTON.png" alt="UTON" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                </div>
-                <div class="p-4 flex flex-col flex-1">
-                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-uton">UTON : Bringing Web3 to Life</h5>
-                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
-                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Kuala Lumpur, Malaysia
-                    </p>
-                    <div class="mt-auto">
-                        <a href="https://luma.com/i21xdrkt" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
-                            View on Luma
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. Summit Pattaya -->
-            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+        <!-- Label: abcd Summit -->
+        <div class="flex items-center gap-3 mb-6">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
+            <span class="text-[10px] font-black uppercase tracking-widest text-cyan-400" data-i18n="label-summit">abcd Summit</span>
+            <div class="flex-1 h-px bg-cyan-500/20"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col border-cyan-500/20">
                 <div class="h-48 overflow-hidden flex-shrink-0">
                     <img src="/events/abcd_Summit_Pattaya.png" alt="abcd Summit Pattaya" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
@@ -403,9 +388,34 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 3. Beyond Borders -->
-            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+        <!-- Label: abcd Bespoke -->
+        <div class="flex items-center gap-3 mb-6">
+            <span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
+            <span class="text-[10px] font-black uppercase tracking-widest text-purple-400" data-i18n="label-bespoke">abcd Bespoke</span>
+            <div class="flex-1 h-px bg-purple-500/20"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col border-purple-500/20">
+                <div class="h-48 overflow-hidden flex-shrink-0">
+                    <img src="/events/abcd_UTON.png" alt="UTON" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-uton">UTON : Bringing Web3 to Life</h5>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Kuala Lumpur, Malaysia
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://luma.com/i21xdrkt?tk=HxiqJV" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
+                            View on Luma
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col border-purple-500/20">
                 <div class="h-48 overflow-hidden flex-shrink-0">
                     <img src="/events/abcd_BB.png" alt="abcd Beyond Borders" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
@@ -423,9 +433,7 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 4. BGBeyond Carnival -->
-            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col border-purple-500/20">
                 <div class="h-48 overflow-hidden flex-shrink-0">
                     <img src="/events/BGB_Carnival.JPG" alt="BGBeyond Web3 Carnival" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
@@ -443,9 +451,7 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 5. Bloc.KK -->
-            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col border-purple-500/20">
                 <div class="h-48 overflow-hidden flex-shrink-0">
                     <img src="/events/BLOCKK.PNG" alt="Bloc.KK Thailand" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
@@ -463,9 +469,7 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 6. GIVE Protocol -->
-            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col border-purple-500/20">
                 <div class="h-48 overflow-hidden flex-shrink-0">
                     <img src="/events/GIVE.PNG" alt="GIVE Protocol" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
@@ -483,9 +487,7 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 7. Music Party -->
-            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col border-purple-500/20">
                 <div class="h-48 overflow-hidden flex-shrink-0">
                     <img src="/events/abcd_MS.png" alt="abcd Music Party" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
@@ -503,9 +505,7 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 8. PizzaFi -->
-            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col border-purple-500/20">
                 <div class="h-48 overflow-hidden flex-shrink-0">
                     <img src="/events/abcd_PizzaFi.JPG" alt="abcd PizzaFi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
@@ -523,8 +523,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
     </section>
 
     <section id="contact" class="py-24 px-6 text-center bg-gradient-to-t from-indigo-900/20 to-black">
@@ -588,7 +588,7 @@
                 "bespoke-tag": "Deeply Customized IP",
                 "value-1": "Powerful industry network and high-quality deal-flow access.", "value-2": "Endorsed by SEA government officials with on-site presence.", "value-3": "Shaping immersive Web3 lifestyle and cultural vibes.",
                 "team-title": "Core Alliance", "role-President": "President / Founder", "role-founder": "Founder", "role-cofounder": "Co-founder", "role-vice": "Vice President / Founder", "other-committee": "Other Committee",
-                "archives-title": "Event Archives",
+                "archives-title": "Event Archives", "label-summit": "abcd Summit", "label-bespoke": "abcd Bespoke",
                 "arch-uton": "UTON : Bringing Web3 to Life by abcd",
                 "arch-summit26": "abcd Summit 2026 (Pattaya)",
                 "arch-beyond": "abcd : Beyond Borders",
@@ -614,7 +614,7 @@
                 "bespoke-tag": "深度定制专题 IP",
                 "value-1": "强大的行业人脉与优质的项目流资源。", "value-2": "东南亚在地政府官员到场支持与背书。", "value-3": "极强的场景塑造力，将 Web3 融入生活方式。",
                 "team-title": "核心联盟", "role-President": "主席 / 创始人", "role-founder": "创始人", "role-cofounder": "联合创始人", "role-vice": "副主席 / 创始人", "other-committee": "其他委员会",
-                "archives-title": "活动回顾",
+                "archives-title": "活动回顾", "label-summit": "abcd 峰会", "label-bespoke": "abcd 定制系列",
                 "arch-uton": "UTON : Bringing Web3 to Life by abcd (吉隆坡)",
                 "arch-summit26": "abcd Summit 2026 (芭提雅)",
                 "arch-beyond": "abcd : Beyond Borders (吉隆坡)",
