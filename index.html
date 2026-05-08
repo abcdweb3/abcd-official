@@ -3,212 +3,646 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abcd | APAC BLOCKCHAIN DAY SUMMIT 2026</title>
-    
+    <title>abcd | APAC BLOCKCHAIN DAY</title>
     <link rel="icon" type="image/png" href="abcd_Logo_C.png">
-    <link rel="apple-touch-icon" href="abcd_Logo_C.png">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap');
-        body { 
-            font-family: 'Space Grotesk', sans-serif; 
-            background-color: #000; 
-            color: white; 
-            overflow-x: hidden; 
-        }
-        .abcd-gradient {
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700;900&display=swap');
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #000; color: white; overflow-x: hidden; }
+        
+        .neon-gradient {
             background: linear-gradient(90deg, #00C2FF 0%, #7000FF 30%, #FF007A 70%, #FF9900 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .glass-card {
+
+        .hero-video-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: -1; 
+            opacity: 0.45;
+            filter: saturate(1.1) brightness(0.7);
+        }
+
+        .glass-panel {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .countdown-num {
-            font-size: 3.5rem;
-            font-weight: 700;
-            font-variant-numeric: tabular-nums;
-            line-height: 1;
-        }
-        @media (min-width: 768px) { .countdown-num { font-size: 5rem; } }
 
-        /* 合作伙伴走马灯 */
-        .marquee-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            padding: 20px 0;
+        .track-card:hover {
+            border-color: #7000FF;
+            box-shadow: 0 0 30px rgba(112, 0, 255, 0.2);
+            transform: translateY(-10px);
         }
-        .marquee-container::before, .marquee-container::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: 150px;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .marquee-container::before { left: 0; background: linear-gradient(to right, #000, transparent); }
-        .marquee-container::after { right: 0; background: linear-gradient(to left, #000, transparent); }
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            gap: 40px;
-            padding: 10px 0;
-            animation: scroll 45s linear infinite;
-        }
-        .marquee-track.reverse { animation: scroll-reverse 45s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @keyframes scroll-reverse { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-        .partner-wrapper { display: flex; align-items: center; justify-content: center; width: 140px; height: 80px; flex-shrink: 0; }
-        .partner-img { max-height: 50px; max-width: 110px; opacity: 0.4; filter: grayscale(100%); transition: 0.4s; }
-        .partner-wrapper:hover .partner-img { opacity: 1; filter: grayscale(0%); transform: scale(1.15); }
 
-        /* 主 Logo 样式 */
-        .summit-logo {
-            max-width: 85%;
-            height: auto;
-            filter: drop-shadow(0 0 35px rgba(0, 194, 255, 0.25));
+        .value-icon {
+            background: linear-gradient(135deg, rgba(0, 194, 255, 0.1), rgba(255, 0, 122, 0.1));
+            border-radius: 20px;
         }
-        @media (min-width: 768px) { .summit-logo { max-width: 650px; } }
+
+        .marquee-container { position: relative; width: 100%; overflow: hidden; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+        .marquee-track { display: flex; width: max-content; gap: 40px; padding: 10px 0; }
+        @media (min-width: 768px) { .marquee-track { gap: 60px; padding: 15px 0; } }
+        
+        .scroll-left { animation: scrollLeft 50s linear infinite; }
+        .scroll-right { animation: scrollRight 50s linear infinite; }
+        
+        @keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes scrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+        .partner-img { height: 25px; width: auto; opacity: 0.4; filter: grayscale(100%); transition: 0.3s; object-fit: contain; }
+        @media (min-width: 768px) { .partner-img { height: 35px; } }
+        .partner-img:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
+
+        [data-lang]:not(.active) { display: none; }
+        
+        .nav-link { position: relative; font-weight: 700; transition: color 0.3s; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background: #7000FF; transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
     </style>
 </head>
 <body>
-    <div class="fixed top-0 left-0 w-full h-full -z-10">
-        <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-orange-500/10 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-indigo-600/15 blur-[120px] rounded-full"></div>
-    </div>
 
-    <nav class="fixed w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
-        <div class="flex items-center">
-            <a href="/"><img src="abcd_Logo_C.png" alt="abcd Logo" class="h-6 md:h-8 w-auto"></a>
-        </div>
-        <div class="flex items-center gap-4 md:gap-8">
-            <button onclick="toggleLanguage()" class="text-[10px] font-bold tracking-widest px-3 py-1 border border-white/10 rounded hover:bg-white/5 transition">
-                <span id="lang-toggle-text">EN / 中</span>
-            </button>
-            <a href="https://luma.com/496ri957" target="_blank" class="px-5 py-2 bg-white text-black rounded-full text-[10px] font-bold hover:bg-white transition uppercase">
-                <span data-i18n="nav-community">Register NOW</span>
-            </a>
-        </div>
-    </nav>
-
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-32 pb-20">
-        <div class="mb-10 inline-block px-5 py-1.5 border border-orange-500/30 rounded-full text-[10px] md:text-xs tracking-[0.3em] text-orange-400 uppercase font-bold animate-pulse">
-            <span data-i18n="hero-tag">NICE CONVENTION CENTER . PATTAYA, THAILAND</span>
-        </div>
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-black/40 z-0"></div>
+        <video autoplay muted loop playsinline class="hero-video-bg">
+            <source src="https://www.web3festival.org/hongkong2026/files/banner_video3.mp4" type="video/mp4">
+        </video>
         
-        <div class="mb-16">
-            <img src="abcd SUMMIT_Logo_C.png" alt="ABCD SUMMIT" class="summit-logo mx-auto">
-        </div>
+        <nav class="fixed top-0 w-full p-6 flex justify-between items-center z-50 backdrop-blur-md border-b border-white/5">
+            <img src="abcd_Logo_C.png" class="h-6 md:h-8 w-auto object-contain">
+            <div class="hidden lg:flex gap-8 text-[10px] uppercase tracking-widest font-black">
+                <a href="#" class="nav-link" data-i18n="nav-home">Home</a>
+                <a href="#summit" class="nav-link" data-i18n="nav-summit">The Summit</a>
+                <a href="#bespoke" class="nav-link" data-i18n="nav-bespoke">Bespoke Series</a>
+                <a href="#team" class="nav-link" data-i18n="nav-team">Team</a>
+                <a href="#archives" class="nav-link" data-i18n="nav-archives">Archives</a>
+                <a href="#" class="nav-link" data-i18n="nav-about">About Us</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="text-[10px] font-black border border-white/20 px-3 py-1 rounded">EN / 中</button>
+                <a href="#contact" class="px-5 py-2 bg-white text-black text-[10px] font-black rounded-full uppercase">
+                   <span data-i18n="nav-join">Join Ecosystem</span>
+                </a>
+            </div>
+        </nav>
 
-        <div class="mb-20 flex gap-4 md:gap-14 justify-center items-end text-center">
-            <div class="flex flex-col"><span id="days" class="countdown-num abcd-gradient">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-days">Days</span></div>
-            <div class="flex flex-col"><span id="hours" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-hours">Hours</span></div>
-            <div class="flex flex-col"><span id="minutes" class="countdown-num text-white">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold" data-i18n="count-mins">Mins</span></div>
-            <div class="flex flex-col text-indigo-500/40"><span id="seconds" class="countdown-num">00</span><span class="text-[9px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mt-3 font-bold font-mono" data-i18n="count-secs">Secs</span></div>
-        </div>
+        <div class="relative z-10 text-center px-6 w-full max-w-7xl">
+            <div class="mb-4 text-xs md:text-sm tracking-[0.4em] md:tracking-[0.6em] uppercase text-white/90 font-black drop-shadow-lg" data-i18n="hero-tag">
+                LEAD THE VIBE, LINK THE WORLD.
+            </div>
 
-        <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto items-center">
-            <a href="https://luma.com/496ri957" target="_blank" class="w-full md:w-auto px-14 py-6 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-[0_0_50px_rgba(255,255,255,0.25)] text-lg uppercase">
-                <span data-i18n="btn-reg">Register NOW</span>
-            </a>
-            <div class="w-full md:w-auto px-10 py-6 glass-card rounded-full font-bold text-xs tracking-widest text-gray-300 uppercase">
-                <span data-i18n="event-date">APRIL 27-28 · 2026</span>
+            <div class="mb-8 md:mb-12 flex justify-center">
+                <img src="abcd_Logo_C.png" class="h-32 md:h-64 w-auto object-contain drop-shadow-[0_10px_50px_rgba(0,0,0,0.8)]">
+            </div>
+            
+            <p class="max-w-4xl mx-auto text-base md:text-2xl text-white font-black mb-12 leading-relaxed drop-shadow-2xl" data-i18n="hero-desc">
+                The Hub of APAC Web3 Ecosystem. We don't just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#summit" class="px-10 py-4 bg-white text-black font-black rounded-full hover:scale-105 transition shadow-2xl" data-i18n="btn-series">VIEW OUR SERIES</a>
+                <a href="#contact" class="px-10 py-4 glass-panel rounded-full font-black hover:bg-white/5 transition" data-i18n="btn-collab">COLLABORATE WITH US</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="summit" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="track-card glass-panel p-10 rounded-[3rem] relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-8 text-6xl font-black opacity-5 group-hover:opacity-10 transition uppercase" data-i18n="summit-label">FLAGSHIP</div>
+                <div class="mb-6 inline-block px-4 py-1 border border-cyan-500 text-cyan-500 text-[10px] font-black uppercase rounded-full">2000+ Attendees</div>
+                <h2 class="text-4xl font-black mb-4">abcd Summit</h2>
+                <p class="text-gray-300 leading-relaxed mb-8" data-i18n="summit-desc">
+                    The industry bellwether. An annual flagship exhibition summit. Bringing together global brains, top VCs, and industry leaders with pitch roadshows, high-density roundtables, and cross-border vibes.
+                </p>
+                <div class="text-xs tracking-widest font-black uppercase abcd-gradient underline" data-i18n="support-tag">Official Support Included</div>
+            </div>
+
+            <div id="bespoke" class="track-card glass-panel p-10 rounded-[3rem] relative overflow-hidden group border-indigo-500/30">
+                <div class="absolute top-0 right-0 p-8 text-6xl font-black opacity-5 group-hover:opacity-10 transition uppercase" data-i18n="bespoke-label">STRATEGIC</div>
+                <div class="mb-6 inline-block px-4 py-1 border border-purple-500 text-purple-500 text-[10px] font-black uppercase rounded-full">500 Pax Boutique</div>
+                <h2 class="text-4xl font-black mb-4">abcd Bespoke</h2>
+                <p class="text-gray-300 leading-relaxed mb-8" data-i18n="bespoke-desc">
+                    Tailor-made for strategic partners. Immersive social scenes (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.
+                </p>
+                <div class="text-xs tracking-widest font-black uppercase text-purple-400 underline" data-i18n="bespoke-tag">Deeply Customized IP</div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-black/50">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-4xl font-bold uppercase tracking-widest abcd-gradient inline-block" data-i18n="partner-title">Summit Partners</h2>
-        </div>
-        <div class="marquee-container">
-            <div class="marquee-track" id="row1"></div>
-            <div class="marquee-track reverse" id="row2"></div>
+    <!-- Core Values Section -->
+    <section class="py-20 bg-white/5 border-y border-white/5 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 value-icon flex items-center justify-center mb-6 text-2xl animate-bounce">🌍</div>
+                <h4 class="text-xl font-black mb-2">1,500+ Global Minds</h4>
+                <p class="text-gray-400 text-sm" data-i18n="value-1">Powerful industry network and high-quality deal-flow access.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 value-icon flex items-center justify-center mb-6 text-2xl">🏛️</div>
+                <h4 class="text-xl font-black mb-2">Official Support</h4>
+                <p class="text-gray-400 text-sm" data-i18n="value-2">Endorsed by SEA government officials with on-site presence.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 value-icon flex items-center justify-center mb-6 text-2xl">🚀</div>
+                <h4 class="text-xl font-black mb-2">Scenario Expert</h4>
+                <p class="text-gray-400 text-sm" data-i18n="value-3">Shaping immersive Web3 lifestyle and cultural vibes.</p>
+            </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center border-t border-white/5 px-6">
-        <p class="text-gray-600 text-[10px] tracking-widest uppercase font-bold" data-i18n="footer">
-            © 2026 ABCD SUMMIT. Nong Nooch International Convention and Exhibition Center (NICE).
-        </p>
+    <section id="team" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-black mb-16 text-center tracking-tighter uppercase text-white/50" data-i18n="team-title">Core Alliance</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- OTG -->
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-2 pb-2 border-b border-cyan-500/30 mb-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0"></span>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-cyan-400">OTG</span>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-cyan-900 to-black">
+                        <img src="/PFP/mrone.JPG" alt="mrone.eth" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">mrone.eth</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight" data-i18n="role-President">President / Founder</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://linktr.ee/mrone.eth" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="Linktree">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-cyan-900 to-black">
+                        <img src="/PFP/0xJasmine.PNG" alt="0xJasmine" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">0xJasmine</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight" data-i18n="role-cofounder">Co-founder</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://linktr.ee/0x0xjasmine" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="Linktree">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CH90 -->
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-2 pb-2 border-b border-purple-500/30 mb-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 flex-shrink-0"></span>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-purple-400">CH90</span>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-purple-900 to-black">
+                        <img src="/PFP/Ada.jpg" alt="Ada" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">Ada</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight" data-i18n="role-founder">Founder</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://x.com/ZhenjingHew" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="X">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-purple-900 to-black">
+                        <img src="/PFP/BenChoong.jpg" alt="Ben" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">Ben Choong</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight" data-i18n="role-cofounder">Co-founder</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://x.com/web3benchoong" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="X">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOONX -->
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-2 pb-2 border-b border-pink-500/30 mb-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-pink-400 flex-shrink-0"></span>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-pink-400">MOONX</span>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-pink-900 to-black">
+                        <img src="/PFP/AsianOnPulse.jpg" alt="AsianOnPulse" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">AsianOnPulse</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight" data-i18n="role-founder">Founder</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://x.com/AsianOnPulse" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="X">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-pink-900 to-black">
+                        <img src="/PFP/YSOnPulse.jpg" alt="YS" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">YS</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight" data-i18n="role-cofounder">Co-founder</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://x.com/YSonPulse" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="X">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRM -->
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-2 pb-2 border-b border-orange-500/30 mb-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0"></span>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-orange-400">CRM</span>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-900 to-black">
+                        <img src="/PFP/KXI.png" alt="Kxi" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">Kxi</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight" data-i18n="role-vice">Vice President / Founder</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://x.com/Tempok3314" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="X">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-900 to-black">
+                        <img src="/PFP/Andrew.JPG" alt="Andrew" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">Andrew</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight" data-i18n="role-cofounder">Co-founder</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://x.com/AndrewLeo6068" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="X">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-900 to-black">
+                        <img src="/PFP/Yanzii.jpg" alt="Yanzii" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">Yanzii</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight" data-i18n="role-cofounder">Co-founder</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://x.com/Yanzii3496" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="X">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Other Committee -->
+        <div class="mt-12 pt-10 border-t border-white/5">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-[10px] font-black uppercase tracking-widest text-white/30" data-i18n="other-committee">Other Committee</span>
+                <div class="flex-1 h-px bg-white/5"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-gray-800 to-black">
+                        <img src="/PFP/Mocha.JPG" alt="Mocha" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">Mocha</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight">BD</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://x.com/DTCGroup_Mocha" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="X">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-gray-800 to-black">
+                        <img src="/PFP/Winsman.JPG" alt="Winsman" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-black text-sm leading-tight truncate">Winsman</p>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-wider mt-1 mb-3 leading-tight">Advisor</p>
+                        <div class="flex gap-1.5">
+                            <a href="https://x.com/Winsman99" target="_blank" rel="noopener" class="w-6 h-6 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 hover:text-white transition text-gray-400" title="X">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="archives" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center" data-i18n="archives-title">Event <span class="neon-gradient">Archives</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- 1. UTON -->
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+                <div class="h-48 overflow-hidden flex-shrink-0">
+                    <img src="/events/abcd_UTON.png" alt="UTON" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-uton">UTON : Bringing Web3 to Life</h5>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Kuala Lumpur, Malaysia
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://luma.com/i21xdrkt" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
+                            View on Luma
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Summit Pattaya -->
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+                <div class="h-48 overflow-hidden flex-shrink-0">
+                    <img src="/events/abcd_Summit_Pattaya.png" alt="abcd Summit Pattaya" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-summit26">abcd Summit Pattaya</h5>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Pattaya, Thailand
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://luma.com/496ri957" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
+                            View on Luma
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Beyond Borders -->
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+                <div class="h-48 overflow-hidden flex-shrink-0">
+                    <img src="/events/abcd_BB.png" alt="abcd Beyond Borders" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-beyond">abcd : Beyond Borders</h5>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Kuala Lumpur, Malaysia
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://luma.com/rf2wk90w" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
+                            View on Luma
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BGBeyond Carnival -->
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+                <div class="h-48 overflow-hidden flex-shrink-0">
+                    <img src="/events/BGB_Carnival.JPG" alt="BGBeyond Web3 Carnival" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-carnival">BGBeyond Web3 Carnival</h5>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Kuala Lumpur, Malaysia
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://luma.com/fgcwplfr" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
+                            View on Luma
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Bloc.KK -->
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+                <div class="h-48 overflow-hidden flex-shrink-0">
+                    <img src="/events/BLOCKK.PNG" alt="Bloc.KK Thailand" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-blockk">Bloc.KK Thailand</h5>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Bangkok, Thailand
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://luma.com/cqqm14w7" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
+                            View on Luma
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. GIVE Protocol -->
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+                <div class="h-48 overflow-hidden flex-shrink-0">
+                    <img src="/events/GIVE.PNG" alt="GIVE Protocol" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-give">GIVE Protocol - First Community Meetup</h5>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Kuala Lumpur, Malaysia
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://luma.com/gn7095i3" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
+                            View on Luma
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Music Party -->
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+                <div class="h-48 overflow-hidden flex-shrink-0">
+                    <img src="/events/abcd_MS.png" alt="abcd Music Party" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-music">abcd : Music Party</h5>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Kuala Lumpur, Malaysia
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://luma.com/66azxcxz" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
+                            View on Luma
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. PizzaFi -->
+            <div class="glass-panel rounded-3xl overflow-hidden group flex flex-col">
+                <div class="h-48 overflow-hidden flex-shrink-0">
+                    <img src="/events/abcd_PizzaFi.JPG" alt="abcd PizzaFi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <h5 class="font-black text-sm leading-snug mb-1" data-i18n="arch-pizza">abcd : PizzaFi</h5>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-1">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Kuala Lumpur, Malaysia
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://luma.com/yficu3jx" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition" data-i18n="arch-luma">
+                            View on Luma
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 text-center bg-gradient-to-t from-indigo-900/20 to-black">
+        <h2 class="text-4xl font-black mb-4 uppercase" data-i18n="join-title">Join the <span class="abcd-gradient">Ecosystem</span></h2>
+        <p class="text-gray-400 mb-12 font-black" data-i18n="join-desc">Don't just attend. Be part of the vibe that shapes the APAC Web3 landscape.</p>
+        <div class="max-w-xl mx-auto grid grid-cols-1 gap-4">
+            <a href="https://luma.com/abcd.web3" target="_blank" class="glass-panel p-6 rounded-2xl hover:bg-white/10 transition flex items-center justify-between group">
+                <div class="text-left">
+                    <div class="font-black text-lg" data-i18n="attend-btn">I want to attend the next event</div>
+                    <div class="text-xs text-gray-500" data-i18n="attend-sub">Get your ticket for the upcoming series</div>
+                </div>
+                <span class="group-hover:translate-x-2 transition">→</span>
+            </a>
+            <a href="mailto:abcd.web3@gmail.com" class="glass-panel p-6 rounded-2xl border-indigo-500/50 bg-indigo-500/5 hover:bg-indigo-500/10 transition flex items-center justify-between group text-left">
+                <div>
+                    <div class="font-black text-lg text-indigo-400" data-i18n="bespoke-btn">Inquiry for Bespoke Event</div>
+                    <div class="text-xs text-gray-500" data-i18n="bespoke-sub">Customized branding & networking experience</div>
+                </div>
+                <span class="group-hover:translate-x-2 transition">→</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="marquee-container bg-black/40 py-10">
+        <div class="text-center mb-8">
+            <h4 class="text-[10px] tracking-[0.5em] uppercase text-white/30 font-black" data-i18n="partner-title">Ecosystem Partners</h4>
+        </div>
+        <div class="marquee-track scroll-left" id="row-1"></div>
+        <div class="marquee-track scroll-right" id="row-2"></div>
+        <div class="marquee-track scroll-left" id="row-3"></div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em] font-black" data-i18n="footer-text">
+        © 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem.
     </footer>
 
     <script type="module">
         import { partners } from './partnersData.js';
+        
+        function renderMarquee() {
+            const rows = [document.getElementById('row-1'), document.getElementById('row-2'), document.getElementById('row-3')];
+            if (!partners) return;
+            const perRow = Math.ceil(partners.length / 3);
+            rows.forEach((row, index) => {
+                const start = index * perRow;
+                const rowData = partners.slice(start, start + perRow);
+                const doubleData = [...rowData, ...rowData, ...rowData, ...rowData]; 
+                row.innerHTML = doubleData.map(p => `<img src="${p.logo}" class="partner-img" alt="${p.name}">`).join('');
+            });
+        }
 
         const translations = {
             en: {
-                "nav-community": "Register NOW", 
-                "hero-tag": "NICE CONVENTION CENTER . PATTAYA, THAILAND",
-                "btn-reg": "Register NOW",
-                "count-days": "Days", "count-hours": "Hours", "count-mins": "Mins", "count-secs": "Secs",
-                "event-date": "APRIL 27-28 · 2026",
-                "partner-title": "Summit Partners",
-                "footer": "© 2026 ABCD SUMMIT. Nong Nooch International Convention and Exhibition Center (NICE)."
+                "nav-home": "Home", "nav-summit": "The Summit", "nav-bespoke": "Bespoke Series", "nav-team": "Team", "nav-archives": "Archives", "nav-about": "About Us", "nav-join": "Join Ecosystem",
+                "hero-tag": "LEAD THE VIBE, LINK THE WORLD.",
+                "hero-desc": "The Hub of APAC Web3 Ecosystem. We don't just host events; we lead the vibe and link the world through flagship summits and bespoke experiences.",
+                "btn-series": "VIEW OUR SERIES", "btn-collab": "COLLABORATE WITH US",
+                "summit-label": "FLAGSHIP", "summit-desc": "The industry bellwether. An annual flagship exhibition summit. Bringing together global brains, top VCs, and industry leaders with pitch roadshows, high-density roundtables, and cross-border vibes.",
+                "support-tag": "Official Support Included",
+                "bespoke-label": "STRATEGIC", "bespoke-desc": "Tailor-made for strategic partners. Immersive social scenes (Tourism, RWA, Payment, etc.). Precision access to vertical circles with highly customized lifestyle integration.",
+                "bespoke-tag": "Deeply Customized IP",
+                "value-1": "Powerful industry network and high-quality deal-flow access.", "value-2": "Endorsed by SEA government officials with on-site presence.", "value-3": "Shaping immersive Web3 lifestyle and cultural vibes.",
+                "team-title": "Core Alliance", "role-President": "President / Founder", "role-founder": "Founder", "role-cofounder": "Co-founder", "role-vice": "Vice President / Founder", "other-committee": "Other Committee",
+                "archives-title": "Event Archives",
+                "arch-uton": "UTON : Bringing Web3 to Life by abcd",
+                "arch-summit26": "abcd Summit 2026 (Pattaya)",
+                "arch-beyond": "abcd : Beyond Borders",
+                "arch-carnival": "BGBeyond Web3 Carnival",
+                "arch-blockk": "Bloc.KK Thailand : Café Crypto Future Brews",
+                "arch-give": "GIVE Protocol - First Community Meetup",
+                "arch-music": "abcd : Music Party",
+                "arch-pizza": "abcd : PizzaFi",
+                "arch-luma": "View on Luma",
+                "join-title": "Join the Ecosystem", "join-desc": "Don't just attend. Be part of the vibe that shapes the APAC Web3 landscape.",
+                "attend-btn": "I want to attend the next event", "attend-sub": "Get your ticket for the upcoming series",
+                "bespoke-btn": "Inquiry for Bespoke Event", "bespoke-sub": "Customized branding & networking experience",
+                "partner-title": "Ecosystem Partners", "footer-text": "© 2026 APAC BLOCKCHAIN DAY. Connecting the APAC Web3 Ecosystem."
             },
             zh: {
-                "nav-community": "立即报名", 
-                "hero-tag": "NICE 国际会展中心 . 泰国 · 芭提雅",
-                "btn-reg": "立即报名",
-                "count-days": "天", "count-hours": "时", "count-mins": "分", "count-secs": "秒",
-                "event-date": "2026年 4月27-28日",
-                "partner-title": "峰会合作伙伴",
-                "footer": "© 2026 ABCD SUMMIT. 芭提雅东芭乐园国际会议中心 (NICE)."
+                "nav-home": "主页", "nav-summit": "年度旗舰峰会", "nav-bespoke": "定制化专题系列", "nav-team": "核心团队", "nav-archives": "活动归档", "nav-about": "关于我们", "nav-join": "加入生态",
+                "hero-tag": "LEAD THE VIBE, LINK THE WORLD.",
+                "hero-desc": "亚太 Web3 生态枢纽。我们不只是举办活动，我们通过旗舰峰会和定制体验，引领行业氛围并连接世界。",
+                "btn-series": "查看系列活动", "btn-collab": "与我们合作",
+                "summit-label": "年度旗舰", "summit-desc": "行业风向标。年度旗舰展览型峰会。汇聚全球智脑、顶尖 VC、行业领袖，结合项目路演、高密度圆桌及跨界场景。",
+                "support-tag": "官方机构现场支持",
+                "bespoke-label": "战略定制", "bespoke-desc": "为战略合作伙伴量身打造。沉浸式社交场景设计（旅游、支付、RWA 等）。精准触达垂直圈层，将 Web3 深度融入生活方式。",
+                "bespoke-tag": "深度定制专题 IP",
+                "value-1": "强大的行业人脉与优质的项目流资源。", "value-2": "东南亚在地政府官员到场支持与背书。", "value-3": "极强的场景塑造力，将 Web3 融入生活方式。",
+                "team-title": "核心联盟", "role-President": "主席 / 创始人", "role-founder": "创始人", "role-cofounder": "联合创始人", "role-vice": "副主席 / 创始人", "other-committee": "其他委员会",
+                "archives-title": "活动回顾",
+                "arch-uton": "UTON : Bringing Web3 to Life by abcd (吉隆坡)",
+                "arch-summit26": "abcd Summit 2026 (芭提雅)",
+                "arch-beyond": "abcd : Beyond Borders (吉隆坡)",
+                "arch-carnival": "BGBeyond Web3 狂欢嘉年华 (吉隆坡)",
+                "arch-blockk": "Bloc.KK 泰国 : 加密咖啡·未来愿景 (曼谷)",
+                "arch-give": "GIVE Protocol - 首场社区见面会 (吉隆坡)",
+                "arch-music": "abcd : 音乐派对 (吉隆坡)",
+                "arch-pizza": "abcd : PizzaFi 社区活动",
+                "arch-luma": "在 Luma 查看",
+                "join-title": "加入我们生态", "join-desc": "不只是参会。与我们一起引领并塑造亚太 Web3 行业的未来。",
+                "attend-btn": "我想参加下一场活动", "attend-sub": "获取即将举行的系列活动门票",
+                "bespoke-btn": "为我的品牌定制专属活动", "bespoke-sub": "定制化品牌推广与人脉社交体验",
+                "partner-title": "生态合作伙伴", "footer-text": "© 2026 APAC BLOCKCHAIN DAY. 连接亚太 Web3 生态系统。"
             }
         };
 
         let currentLang = localStorage.getItem('abcd-lang') || 'en';
-
-        window.applyLanguage = function(lang) {
+        function applyLanguage(lang) {
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if(translations[lang][key]) el.innerText = translations[lang][key];
+                if(translations[lang][key]) el.innerHTML = translations[lang][key];
             });
-            document.getElementById('lang-toggle-text').innerText = lang === 'en' ? 'EN / 中' : '中 / EN';
             localStorage.setItem('abcd-lang', lang);
         }
-
-        window.toggleLanguage = function() {
-            currentLang = currentLang === 'en' ? 'zh' : 'en';
-            applyLanguage(currentLang);
-        }
-
+        window.toggleLanguage = () => { currentLang = currentLang === 'en' ? 'zh' : 'en'; applyLanguage(currentLang); };
+        
+        renderMarquee();
         applyLanguage(currentLang);
-
-        const row1 = document.getElementById('row1');
-        const row2 = document.getElementById('row2');
-        const midpoint = Math.ceil(partners.length / 2);
-        const set1 = partners.slice(0, midpoint);
-        const set2 = partners.slice(midpoint);
-
-        function renderLogos(container, data) {
-            const displayData = data.length > 0 ? [...data, ...data, ...data, ...data] : []; 
-            container.innerHTML = displayData.map(p => `
-                <div class="partner-wrapper">
-                    <img src="${p.logo}" alt="${p.name}" class="partner-img">
-                </div>
-            `).join('');
-        }
-        renderLogos(row1, set1); renderLogos(row2, set2);
-
-        // 目标时间：2026 年 4 月 27 日
-        const targetDate = new Date("April 27, 2026 09:00:00").getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-            if (distance < 0) return;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000); updateCountdown();
     </script>
 </body>
 </html>
