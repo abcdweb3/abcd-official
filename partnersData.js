@@ -39,7 +39,7 @@ export const partners = [
   { name: "JCI Entrepreneur Metropolitan KL", logo: "/logos/JCI.png", type: "Community" },
   { name: "KiraPay", logo: "/logos/kirapay.png", type: "Payment" },
   { name: "Pudgy Malaysia", logo: "/logos/PudgyMalaysia.png", type: "Community" },
-  { name: "Mamak3.0", logo: "/logos/Mamak.png", type: "Community" },
+  { name: "Mamak3.0", logo: "/logos/Mamak.jpg", type: "Community" },
   { name: "OffChain", logo: "/logos/OffChain.png", type: "Community" },
   { name: "Singapore Blockchain Week", logo: "/logos/SBW.png", type: "Event" },
   { name: "Malaysia Blockchain Week", logo: "/logos/MYBW26.png", type: "Event" },
